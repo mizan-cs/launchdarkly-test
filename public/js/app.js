@@ -25735,9 +25735,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/progress */ "./node_modules/@inertiajs/progress/dist/index.js");
+/* harmony import */ var vue_ld__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-ld */ "./node_modules/vue-ld/dist/index.es.js");
 var _window$document$getE;
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -25759,7 +25761,16 @@ var appName = ((_window$document$getE = window.document.getElementsByTagName('ti
       render: function render() {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(app, props);
       }
-    }).use(plugin).mixin({
+    }).use(plugin).use(vue_ld__WEBPACK_IMPORTED_MODULE_3__.VueLd, {
+      clientSideId: '61d2f2fd59d4b50dc54b51cd',
+      user: {
+        key: 'mizan@test.com',
+        email: 'mizan@test.com',
+        name: 'mizan@test.com'
+      },
+      options: {// Standard LaunchDarkly JavaScript SDK options
+      }
+    }).mixin({
       methods: {
         route: route
       }
@@ -26640,6 +26651,26 @@ module.exports = function hasSymbols() {
 var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.js");
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+
+
+/***/ }),
+
+/***/ "./node_modules/launchdarkly-js-client-sdk/dist/ldclient.es.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/launchdarkly-js-client-sdk/dist/ldclient.es.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "createConsoleLogger": () => (/* binding */ $e),
+/* harmony export */   "initialize": () => (/* binding */ Ke),
+/* harmony export */   "version": () => (/* binding */ Be)
+/* harmony export */ });
+function e(n){return(e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(n)}function n(e,n,t){return n in e?Object.defineProperty(e,n,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[n]=t,e}function t(e,n){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);n&&(r=r.filter((function(n){return Object.getOwnPropertyDescriptor(e,n).enumerable}))),t.push.apply(t,r)}return t}function r(e){for(var r=1;r<arguments.length;r++){var o=null!=arguments[r]?arguments[r]:{};r%2?t(o,!0).forEach((function(t){n(e,t,o[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(o)):t(o).forEach((function(n){Object.defineProperty(e,n,Object.getOwnPropertyDescriptor(o,n))}))}return e}function o(e){function n(e,n){Error.captureStackTrace&&Error.captureStackTrace(this,this.constructor),this.message=e,this.code=n}return n.prototype=new Error,n.prototype.name=e,n.prototype.constructor=n,n}var i=o("LaunchDarklyUnexpectedResponseError"),a=o("LaunchDarklyInvalidEnvironmentIdError"),u=o("LaunchDarklyInvalidUserError"),s=o("LaunchDarklyInvalidEventKeyError"),c=o("LaunchDarklyInvalidArgumentError"),l=o("LaunchDarklyFlagFetchError");function f(e){return!(e>=400&&e<500)||400===e||408===e||429===e}for(var d=Object.freeze({__proto__:null,LDUnexpectedResponseError:i,LDInvalidEnvironmentIdError:a,LDInvalidUserError:u,LDInvalidEventKeyError:s,LDInvalidArgumentError:c,LDFlagFetchError:l,isHttpErrorRecoverable:f}),v=[],g=[],p="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",m=0,h=p.length;m<h;++m)v[m]=p[m],g[p.charCodeAt(m)]=m;function y(e,n,t){for(var r,o,i=[],a=n;a<t;a+=3)r=(e[a]<<16&16711680)+(e[a+1]<<8&65280)+(255&e[a+2]),i.push(v[(o=r)>>18&63]+v[o>>12&63]+v[o>>6&63]+v[63&o]);return i.join("")}g["-".charCodeAt(0)]=62,g["_".charCodeAt(0)]=63;var w=Array.isArray,b=Object.keys,k=Object.prototype.hasOwnProperty,E=["key","secondary","ip","country","email","firstName","lastName","avatar","name"];function S(e){return function(e){for(var n,t=e.length,r=t%3,o=[],i=0,a=t-r;i<a;i+=16383)o.push(y(e,i,i+16383>a?a:i+16383));return 1===r?(n=e[t-1],o.push(v[n>>2]+v[n<<4&63]+"==")):2===r&&(n=(e[t-2]<<8)+e[t-1],o.push(v[n>>10]+v[n>>4&63]+v[n<<2&63]+"=")),o.join("")}(function(e){for(var n=[],t=0;t<e.length;t++)n.push(e.charCodeAt(t));return n}(unescape(encodeURIComponent(e))))}function D(e){return S(e).replace(/=/g,"").replace(/\+/g,"-").replace(/\//g,"_")}function O(e){return JSON.parse(JSON.stringify(e))}function P(e,n){return function e(n,t){if(n===t)return!0;if(n&&t&&"object"==typeof n&&"object"==typeof t){var r,o,i,a=w(n),u=w(t);if(a&&u){if((o=n.length)!=t.length)return!1;for(r=o;0!=r--;)if(!e(n[r],t[r]))return!1;return!0}if(a!=u)return!1;var s=n instanceof Date,c=t instanceof Date;if(s!=c)return!1;if(s&&c)return n.getTime()==t.getTime();var l=n instanceof RegExp,f=t instanceof RegExp;if(l!=f)return!1;if(l&&f)return n.toString()==t.toString();var d=b(n);if((o=d.length)!==b(t).length)return!1;for(r=o;0!=r--;)if(!k.call(t,d[r]))return!1;for(r=o;0!=r--;)if(!e(n[i=d[r]],t[i]))return!1;return!0}return n!=n&&t!=t}(e,n)}function U(e){setTimeout(e,0)}function R(e,n){var t=e.then((function(e){return n&&setTimeout((function(){n(null,e)}),0),e}),(function(e){if(!n)return Promise.reject(e);setTimeout((function(){n(e,null)}),0)}));return n?void 0:t}function j(e){var n={};for(var t in e)x(e,t)&&(n[t]={value:e[t],version:0});return n}function I(e){var n={};for(var t in e)x(e,t)&&(n[t]=e[t].value);return n}function T(e,n){for(var t,r=n.slice(0),o=[],i=e;r.length>0;){for(t=[];i>0;){var a=r.shift();if(!a)break;(i-=D(JSON.stringify(a)).length)<0&&t.length>0?r.unshift(a):t.push(a)}i=e,o.push(t)}return o}function N(e){var n=e.version||"3.4.0";return e.userAgent+"/"+n}function L(e,n){if(n&&!n.sendLDHeaders)return{};var t={"X-LaunchDarkly-User-Agent":N(e)};return n&&n.wrapperName&&(t["X-LaunchDarkly-Wrapper"]=n.wrapperVersion?n.wrapperName+"/"+n.wrapperVersion:n.wrapperName),t}function F(e,n){return n&&n.requestHeaderTransform?n.requestHeaderTransform(r({},e)):e}function C(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];return n.reduce((function(e,n){return r({},e,{},n)}),{})}function x(e,n){return Object.prototype.hasOwnProperty.call(e,n)}function A(e){if(!e)return e;var n;for(var t in E){var o=E[t],i=e[o];void 0!==i&&"string"!=typeof i&&((n=n||r({},e))[o]=String(i))}return n||e}Object.freeze({__proto__:null,btoa:S,base64URLEncode:D,clone:O,deepEquals:P,onNextTick:U,wrapPromiseCallback:R,transformValuesToVersionedValues:j,transformVersionedValuesToValues:I,chunkUserEventsForUrl:T,getLDUserAgentString:N,getLDHeaders:L,transformHeaders:F,extend:C,objectHasOwnProperty:x,sanitizeUser:A});for(var q=function(e,n){return function(e){var n="undefined"!=typeof crypto&&crypto.getRandomValues&&crypto.getRandomValues.bind(crypto)||"undefined"!=typeof msCrypto&&"function"==typeof window.msCrypto.getRandomValues&&msCrypto.getRandomValues.bind(msCrypto);if(n){var t=new Uint8Array(16);e.exports=function(){return n(t),t}}else{var r=new Array(16);e.exports=function(){for(var e,n=0;n<16;n++)0==(3&n)&&(e=4294967296*Math.random()),r[n]=e>>>((3&n)<<3)&255;return r}}}(n={exports:{}}),n.exports}(),V=[],_=0;_<256;++_)V[_]=(_+256).toString(16).substr(1);var J,z,M=0,H=0,K=function(e,n,t){var r=n&&t||0,o=n||[],i=(e=e||{}).node||J,a=void 0!==e.clockseq?e.clockseq:z;if(null==i||null==a){var u=q();null==i&&(i=J=[1|u[0],u[1],u[2],u[3],u[4],u[5]]),null==a&&(a=z=16383&(u[6]<<8|u[7]))}var s=void 0!==e.msecs?e.msecs:(new Date).getTime(),c=void 0!==e.nsecs?e.nsecs:H+1,l=s-M+(c-H)/1e4;if(l<0&&void 0===e.clockseq&&(a=a+1&16383),(l<0||s>M)&&void 0===e.nsecs&&(c=0),c>=1e4)throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");M=s,H=c,z=a;var f=(1e4*(268435455&(s+=122192928e5))+c)%4294967296;o[r++]=f>>>24&255,o[r++]=f>>>16&255,o[r++]=f>>>8&255,o[r++]=255&f;var d=s/4294967296*1e4&268435455;o[r++]=d>>>8&255,o[r++]=255&d,o[r++]=d>>>24&15|16,o[r++]=d>>>16&255,o[r++]=a>>>8|128,o[r++]=255&a;for(var v=0;v<6;++v)o[r+v]=i[v];return n||function(e,n){var t=n||0,r=V;return[r[e[t++]],r[e[t++]],r[e[t++]],r[e[t++]],"-",r[e[t++]],r[e[t++]],"-",r[e[t++]],r[e[t++]],"-",r[e[t++]],r[e[t++]],"-",r[e[t++]],r[e[t++]],r[e[t++]],r[e[t++]],r[e[t++]],r[e[t++]]].join("")}(o)};function $(e,n,t){var r="/a/"+n+".gif",o=C({"Content-Type":"application/json"},L(e,t)),i=e.httpFallbackPing,a={sendChunk:function(n,a,u,s){var c=JSON.stringify(n),l=u?null:K();return s?function n(r){var i=u?o:C({},o,{"X-LaunchDarkly-Event-Schema":"3","X-LaunchDarkly-Payload-ID":l});return e.httpRequest("POST",a,F(i,t),c).promise.then((function(e){if(e)return e.status>=400&&f(e.status)&&r?n(!1):function(e){var n={status:e.status},t=e.header("date");if(t){var r=Date.parse(t);r&&(n.serverTime=r)}return n}(e)})).catch((function(){return r?n(!1):Promise.reject()}))}(!0).catch((function(){})):(i&&i(a+r+"?d="+D(c)),Promise.resolve())},sendEvents:function(n,t,r){if(!e.httpRequest)return Promise.resolve();var o,i=e.httpAllowsPost();o=i?[n]:T(2e3-t.length,n);for(var u=[],s=0;s<o.length;s++)u.push(a.sendChunk(o[s],t,r,i));return Promise.all(u)}};return a}function B(){var e={},n=0,t=0,r={};return e.summarizeEvent=function(e){if("feature"===e.kind){var o=e.key+":"+(null!==e.variation&&void 0!==e.variation?e.variation:"")+":"+(null!==e.version&&void 0!==e.version?e.version:""),i=r[o];i?i.count=i.count+1:r[o]={count:1,key:e.key,variation:e.variation,version:e.version,value:e.value,default:e.default},(0===n||e.creationDate<n)&&(n=e.creationDate),e.creationDate>t&&(t=e.creationDate)}},e.getSummary=function(){var e={},o=!0;for(var i in r){var a=r[i],u=e[a.key];u||(u={default:a.default,counters:[]},e[a.key]=u);var s={value:a.value,count:a.count};void 0!==a.variation&&null!==a.variation&&(s.variation=a.variation),a.version?s.version=a.version:s.unknown=!0,u.counters.push(s),o=!1}return o?null:{startDate:n,endDate:t,features:e}},e.clearSummary=function(){n=0,t=0,r={}},e}function G(e){var n={},t=e.allAttributesPrivate,r=e.privateAttributeNames||[],o={key:!0,custom:!0,anonymous:!0},i={key:!0,secondary:!0,ip:!0,country:!0,email:!0,firstName:!0,lastName:!0,avatar:!0,name:!0,anonymous:!0,custom:!0};return n.filterUser=function(e){if(!e)return null;var n=e.privateAttributeNames||[],a=function(e,i){return Object.keys(e).reduce((function(a,u){var s=a;return i(u)&&(function(e){return!o[e]&&(t||-1!==n.indexOf(e)||-1!==r.indexOf(e))}(u)?s[1][u]=!0:s[0][u]=e[u]),s}),[{},{}])},u=a(e,(function(e){return i[e]})),s=u[0],c=u[1];if(e.custom){var l=a(e.custom,(function(){return!0}));s.custom=l[0],c=C({},c,l[1])}var f=Object.keys(c);return f.length&&(f.sort(),s.privateAttrs=f),s},n}function X(e){return e&&e.message?e.message:"string"==typeof e||e instanceof String?e:JSON.stringify(e)}var W=" Please see https://docs.launchdarkly.com/sdk/client-side/javascript#initializing-the-client for instructions on SDK initialization.",Q=function(e){return'Expected application/json content type but got "'+e+'"'},Y=function(e){return"network error"+(e?" ("+e+")":"")},Z=function(e){return'Custom event "'+e+'" does not exist'},ee=function(){return"Environment not found. Double check that you specified a valid environment/client-side ID."+W},ne=function(){return"No environment/client-side ID was specified."+W},te=function(e){return"Error fetching flag settings: "+X(e)},re=function(){return"No user specified."+W},oe=function(){return"Invalid user specified."+W},ie=function(){return"LaunchDarkly client was initialized with bootstrap data that did not include flag metadata. Events may not be sent correctly."+W},ae=function(e,n){return n?'"'+e+'" is deprecated, please use "'+n+'"':'"'+e+'" is deprecated'},ue=function(e,n,t){return"Received error "+e+(401===e?" (invalid SDK key)":"")+" for "+n+" - "+(f(e)?t:"giving up permanently")},se=function(){return"Cannot make HTTP requests in this environment."+W},ce=function(e){return"Opening stream connection to "+e},le=function(e,n){return"Error on stream connection: "+X(e)+", will continue retrying every "+n+" milliseconds."},fe=function(e){return'Ignoring unknown config option "'+e+'"'},de=function(e,n,t){return'Config option "'+e+'" should be of type '+n+", got "+t+", using default value"},ve=function(e,n){return'Config option "'+e+'" should be a boolean, got '+n+", converting to boolean"},ge=function(e,n,t){return'Config option "'+e+'" was set to '+n+", changing to minimum value of "+t},pe=function(e){return"polling for feature flags at "+e},me=function(e){return'received streaming update for flag "'+e+'"'},he=function(e){return'received streaming update for flag "'+e+'" but ignored due to version check'},ye=function(e){return'received streaming deletion for flag "'+e+'"'},we=function(e){return'received streaming deletion for flag "'+e+'" but ignored due to version check'},be=function(e){return'enqueueing "'+e+'" event'},ke=function(e){return"sending "+e+" events"},Ee=Object.freeze({__proto__:null,clientInitialized:function(){return"LaunchDarkly client initialized"},clientNotReady:function(){return"LaunchDarkly client is not ready"},eventCapacityExceeded:function(){return"Exceeded event queue capacity. Increase capacity to avoid dropping events."},eventWithoutUser:function(){return"Be sure to call `identify` in the LaunchDarkly client: https://docs.launchdarkly.com/sdk/features/identify#javascript"},invalidContentType:Q,invalidKey:function(){return"Event key must be a string"},localStorageUnavailable:function(){return"localStorage is unavailable"},localStorageUnavailableForUserId:function(){return"localStorage is unavailable, so anonymous user ID cannot be cached"},networkError:Y,unknownCustomEventKey:Z,environmentNotFound:ee,environmentNotSpecified:ne,errorFetchingFlags:te,userNotSpecified:re,invalidUser:oe,bootstrapOldFormat:ie,bootstrapInvalid:function(){return"LaunchDarkly bootstrap data is not available because the back end could not read the flags."},deprecated:ae,httpErrorMessage:ue,httpUnavailable:se,identifyDisabled:function(){return"identify() has no effect here; it must be called on the main client instance"},streamClosing:function(){return"Closing stream connection"},streamConnecting:ce,streamError:le,unknownOption:fe,wrongOptionType:de,wrongOptionTypeBoolean:ve,optionBelowMinimum:ge,debugPolling:pe,debugStreamPing:function(){return"received ping message from stream"},debugStreamPut:function(){return"received streaming update for all flags"},debugStreamPatch:me,debugStreamPatchIgnored:he,debugStreamDelete:ye,debugStreamDeleteIgnored:we,debugEnqueueingEvent:be,debugPostingEvents:ke,debugPostingDiagnosticEvent:function(e){return"sending diagnostic event ("+e.kind+")"}});function Se(e,n,t,r,o){var i={};function a(){var e="",o=r.getUser();return o&&(e=t||S(JSON.stringify(o))),"ld:"+n+":"+e}return i.loadFlags=function(){return e.get(a()).then((function(e){if(null==e)return null;try{var n=JSON.parse(e);if(n){var t=n.$schema;void 0===t||t<1?n=j(n):delete n.$schema}return n}catch(e){return i.clearFlags().then((function(){return Promise.reject(e)}))}})).catch((function(e){return o.warn("localStorage is unavailable"),Promise.reject(e)}))},i.saveFlags=function(n){var t=C({},n,{$schema:1});return e.set(a(),JSON.stringify(t)).catch((function(e){return o.warn("localStorage is unavailable"),Promise.reject(e)}))},i.clearFlags=function(){return e.clear(a()).catch((function(e){return o.warn("localStorage is unavailable"),Promise.reject(e)}))},i}function De(e,n,t,r){var o,i=n.streamUrl,a=n.logger,u={},s=i+"/eval/"+t,c=n.useReport,l=n.evaluationReasons,f=n.streamReconnectDelay,d=L(e,n),v=!1,g=null,p=null,m=null,h=null,y=null;function w(e){v||(a.warn(le(e,f)),v=!0),S(!1),E(),b(f)}function b(e){p||(e?p=setTimeout(k,e):k())}function k(){var r;p=null;var u="",f={headers:d,readTimeoutMillis:3e5};if(e.eventSourceFactory){for(var v in null!=h&&(u="h="+h),c?e.eventSourceAllowsReport?(r=s,f.method="REPORT",f.headers["Content-Type"]="application/json",f.body=JSON.stringify(m)):(r=i+"/ping/"+t,u=""):r=s+"/"+D(JSON.stringify(m)),f.headers=F(f.headers,n),l&&(u=u+(u?"&":"")+"withReasons=true"),r=r+(u?"?":"")+u,E(),a.info(ce(r)),o=(new Date).getTime(),g=e.eventSourceFactory(r,f),y)x(y,v)&&g.addEventListener(v,y[v]);g.onerror=w}}function E(){g&&(a.info("Closing stream connection"),g.close(),g=null)}function S(e){o&&r&&r.recordStreamInit(o,!e,(new Date).getTime()-o),o=null}return u.connect=function(e,n,t){m=e,h=n,y={};var r=function(e){y[e]=function(n){v=!1,S(!0),t[e]&&t[e](n)}};for(var o in t||{})r(o);b()},u.disconnect=function(){clearTimeout(p),p=null,E()},u.isConnected=function(){return!!(g&&e.eventSourceIsActive&&e.eventSourceIsActive(g))},u}function Oe(e,n,t){var r=n.baseUrl,o=n.useReport,i=n.evaluationReasons,u=n.logger,s={},c={};function f(t,r){if(!e.httpRequest)return new Promise((function(e,n){n(new l(se()))}));var o=r?"REPORT":"GET",i=L(e,n);r&&(i["Content-Type"]="application/json");var u=c[t];u||(u=function(e){var n,t,r,o,i={addPromise:function(i,a){n=i,t&&t(),t=a,i.then((function(t){n===i&&(r(t),e&&e())}),(function(t){n===i&&(o(t),e&&e())}))}};return i.resultPromise=new Promise((function(e,n){r=e,o=n})),i}((function(){delete c[t]})),c[t]=u);var s=e.httpRequest(o,t,F(i,n),r),f=s.promise.then((function(e){if(200===e.status){if(e.header("content-type")&&"application/json"===e.header("content-type").substring(0,"application/json".length))return JSON.parse(e.body);var n=Q(e.header("content-type")||"");return Promise.reject(new l(n))}return Promise.reject(function(e){return 404===e.status?new a(ee()):new l(te(e.statusText||String(e.status)))}(e))}),(function(e){return Promise.reject(new l(Y(e)))}));return u.addPromise(f,(function(){s.cancel&&s.cancel()})),u.resultPromise}return s.fetchJSON=function(e){return f(r+e,null)},s.fetchFlagSettings=function(e,n){var a,s,c,l="";return o?(s=[r,"/sdk/evalx/",t,"/user"].join(""),c=JSON.stringify(e)):(a=D(JSON.stringify(e)),s=[r,"/sdk/evalx/",t,"/users/",a].join("")),n&&(l="h="+n),i&&(l=l+(l?"&":"")+"withReasons=true"),s=s+(l?"?":"")+l,u.debug(pe(s)),f(s,c)},s}function Pe(e,n){var t={validateUser:function(t){if(!t)return Promise.reject(new u(re()));var r=O(t);return null!==r.key&&void 0!==r.key?(r.key=r.key.toString(),Promise.resolve(r)):r.anonymous?(e?e.get("ld:$anonUserId").catch((function(){return null})):Promise.resolve(null)).then((function(t){if(t)return r.key=t,r;var o=K();return r.key=o,function(t){return e?e.set("ld:$anonUserId",t).catch((function(){n.warn("localStorage is unavailable, so anonymous user ID cannot be cached")})):Promise.resolve()}(o).then((function(){return r}))})):Promise.reject(new u(oe()))}};return t}var Ue={baseUrl:{default:"https://app.launchdarkly.com"},streamUrl:{default:"https://clientstream.launchdarkly.com"},eventsUrl:{default:"https://events.launchdarkly.com"},sendEvents:{default:!0},streaming:{type:"boolean"},sendLDHeaders:{default:!0},requestHeaderTransform:{type:"function"},inlineUsersInEvents:{default:!1},allowFrequentDuplicateEvents:{default:!1},sendEventsOnlyForVariation:{default:!1},useReport:{default:!1},evaluationReasons:{default:!1},eventCapacity:{default:100,minimum:1},flushInterval:{default:2e3,minimum:2e3},samplingInterval:{default:0,minimum:0},streamReconnectDelay:{default:1e3,minimum:0},allAttributesPrivate:{default:!1},privateAttributeNames:{default:[]},bootstrap:{type:"string|object"},diagnosticRecordingInterval:{default:9e5,minimum:2e3},diagnosticOptOut:{default:!1},wrapperName:{type:"string"},wrapperVersion:{type:"string"},stateProvider:{type:"object"},autoAliasingOptOut:{default:!1}};function Re(n,t,r,o){var i=C({logger:{default:o}},Ue,r),a={all_attributes_private:"allAttributesPrivate",private_attribute_names:"privateAttributeNames",samplingInterval:null};function u(e){U((function(){t&&t.maybeReportError(new c(e))}))}var s=C({},n||{});return function(e){var n=e;Object.keys(a).forEach((function(e){if(void 0!==n[e]){var t=a[e];o&&o.warn(ae(e,t)),t&&(void 0===n[t]&&(n[t]=n[e]),delete n[e])}}))}(s),function(n){var t=C({},n),r=function(n){if(null===n)return"any";if(void 0!==n){if(Array.isArray(n))return"array";var t=e(n);return"boolean"===t||"string"===t||"number"===t||"function"===t?t:"object"}};return Object.keys(n).forEach((function(e){var o=n[e];if(null!=o){var a=i[e];if(void 0===a)u(fe(e));else{var s=a.type||r(a.default);if("any"!==s){var c=s.split("|"),l=r(o);c.indexOf(l)<0?"boolean"===s?(t[e]=!!o,u(ve(e,l))):(u(de(e,s,l)),t[e]=a.default):"number"===l&&void 0!==a.minimum&&o<a.minimum&&(u(ge(e,o,a.minimum)),t[e]=a.minimum)}}}})),t}(s=function(e){var n=C({},e);return Object.keys(i).forEach((function(e){void 0!==n[e]&&null!==n[e]||(n[e]=i[e]&&i[e].default)})),n}(s))}var je=Object.freeze({__proto__:null,baseOptionDefs:Ue,validate:Re}).baseOptionDefs,Ie=function(e){var n={diagnosticId:K()};return e&&(n.sdkKeySuffix=e.length>6?e.substring(e.length-6):e),n};function Te(e,n){var t,r=["debug","info","warn","error"];t=null!=n?""===n?"":n+" ":"LD: ";var o=0;e&&(o="none"===e?100:r.indexOf(e));var i={};function a(e,n,i){if(e>=o&&console){var a=console[n];if(a){var u=e<r.length?r[e]:"?";a.call(console,t+"["+u+"] "+i)}}}return i.debug=function(e){return a(0,"log",e)},i.info=function(e){return a(1,"info",e)},i.warn=function(e){return a(2,"warn",e)},i.error=function(e){return a(3,"error",e)},i}function Ne(n,t,o,u,c){var d,v,g,p,m=o&&o.logger?o.logger:c&&c.logger&&c.logger.default||Te("warn"),h=function(e){var n={},t={};return n.on=function(e,n,r){t[e]=t[e]||[],t[e]=t[e].concat({handler:n,context:r})},n.off=function(e,n,r){if(t[e])for(var o=0;o<t[e].length;o++)t[e][o].handler===n&&t[e][o].context===r&&(t[e]=t[e].slice(0,o).concat(t[e].slice(o+1)))},n.emit=function(e){if(t[e])for(var n=t[e].slice(0),r=0;r<n.length;r++)n[r].handler.apply(n[r].context,Array.prototype.slice.call(arguments,1))},n.getEvents=function(){return Object.keys(t)},n.getEventListenerCount=function(e){return t[e]?t[e].length:0},n.maybeReportError=function(n){n&&(t.error?this.emit("error",n):(e||console).error(n.message))},n}(m),y=function(e){var n=!1,t=!1,r=null,o=null,i=new Promise((function(n){e.on("ready",(function t(){e.off("ready",t),n()}))})).catch((function(){}));return{getInitializationPromise:function(){return o||(n?Promise.resolve():t?Promise.reject(r):o=new Promise((function(n,t){e.on("initialized",(function t(){e.off("initialized",t),n()})),e.on("failed",(function n(r){e.off("failed",n),t(r)}))})))},getReadyPromise:function(){return i},signalSuccess:function(){n||t||(n=!0,e.emit("initialized"),e.emit("ready"))},signalFailure:function(o){n||t||(t=!0,r=o,e.emit("failed",o),e.emit("ready")),e.maybeReportError(o)}}}(h),w=Re(o,h,c,m),b=w.sendEvents,k=n,E=w.hash,S=$(u,k,w),D=w.sendEvents&&!w.diagnosticOptOut,j=D?Ie(k):null,T=D?function(e){var n,t,r,o;function i(e){n=e,t=0,r=0,o=[]}return i(e),{getProps:function(){return{dataSinceDate:n,droppedEvents:t,eventsInLastBatch:r,streamInits:o}},setProps:function(e){n=e.dataSinceDate,t=e.droppedEvents||0,r=e.eventsInLastBatch||0,o=e.streamInits||[]},incrementDroppedEvents:function(){t++},setEventsInLastBatch:function(e){r=e},recordStreamInit:function(e,n,t){var r={timestamp:e,failed:n,durationMillis:t};o.push(r)},reset:i}}((new Date).getTime()):null,N=D?function(e,n,t,o,i,a){var u,s,c=!!e.diagnosticUseCombinedEvent,l="ld:"+o+":$diagnostics",f=i.eventsUrl+"/events/diagnostic/"+o,d=i.diagnosticRecordingInterval,v=n,g=!!i.streaming,p={};function m(){return{sdk:w(),configuration:(n={customBaseURI:i.baseUrl!==je.baseUrl.default,customStreamURI:i.streamUrl!==je.streamUrl.default,customEventsURI:i.eventsUrl!==je.eventsUrl.default,eventsCapacity:i.eventCapacity,eventsFlushIntervalMillis:i.flushInterval,reconnectTimeMillis:i.streamReconnectDelay,streamingDisabled:!g,allAttributesPrivate:!!i.allAttributesPrivate,inlineUsersInEvents:!!i.inlineUsersInEvents,diagnosticRecordingIntervalMillis:i.diagnosticRecordingInterval,usingSecureMode:!!i.hash,bootstrapMode:!!i.bootstrap,fetchGoalsDisabled:!i.fetchGoals,allowFrequentDuplicateEvents:!!i.allowFrequentDuplicateEvents,sendEventsOnlyForVariation:!!i.sendEventsOnlyForVariation,autoAliasingOptOut:!!i.autoAliasingOptOut},n),platform:e.diagnosticPlatformData};var n}function h(e){i.logger&&i.logger.debug(Ee.debugPostingDiagnosticEvent(e)),t.sendEvents(e,f,!0).then((function(){})).catch((function(){}))}function y(){var n,t;h((n=(new Date).getTime(),t=r({kind:c?"diagnostic-combined":"diagnostic",id:a,creationDate:n},v.getProps()),c&&(t=r({},t,{},m())),v.reset(n),t)),s=setTimeout(y,d),u=(new Date).getTime(),c&&function(){if(e.localStorage){var n=r({},v.getProps());e.localStorage.set(l,JSON.stringify(n),(function(){}))}}()}function w(){var n=r({},e.diagnosticSdkData);return i.wrapperName&&(n.wrapperName=i.wrapperName),i.wrapperVersion&&(n.wrapperVersion=i.wrapperVersion),n}return p.start=function(){c?function(n){if(!e.localStorage)return n(!1);e.localStorage.get(l).then((function(e){if(e)try{var t=JSON.parse(e);v.setProps(t),u=t.dataSinceDate}catch(e){}n(!0)})).catch((function(){n(!1)}))}((function(e){if(e){var n=(u||0)+d,t=(new Date).getTime();t>=n?y():s=setTimeout(y,n-t)}else 0===Math.floor(4*Math.random())?y():s=setTimeout(y,d)})):(h(r({kind:"diagnostic-init",id:a,creationDate:v.getProps().dataSinceDate},m())),s=setTimeout(y,d))},p.stop=function(){s&&clearTimeout(s)},p.setStreaming=function(e){g=e},p}(u,T,S,k,w,j):null,L=De(u,w,k,T),F=w.eventProcessor||function(e,n,t){var r,o=arguments.length>3&&void 0!==arguments[3]?arguments[3]:null,a=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null,u=arguments.length>5&&void 0!==arguments[5]?arguments[5]:null,s={},c=u||$(e,t,n),l=n.eventsUrl+"/events/bulk/"+t,d=B(),v=G(n),g=n.inlineUsersInEvents,p=n.samplingInterval,m=n.eventCapacity,h=n.flushInterval,y=n.logger,w=[],b=0,k=!1,E=!1;function S(){return 0===p||0===Math.floor(Math.random()*p)}function D(e){return!!e.debugEventsUntilDate&&e.debugEventsUntilDate>b&&e.debugEventsUntilDate>(new Date).getTime()}function O(e){var n=C({},e);return"alias"===e.kind||(g||"identify"===e.kind?n.user=v.filterUser(e.user):(n.userKey=e.user.key,delete n.user),"feature"===e.kind&&(delete n.trackEvents,delete n.debugEventsUntilDate)),n}function P(e){w.length<m?(w.push(e),E=!1):(E||(E=!0,y.warn("Exceeded event queue capacity. Increase capacity to avoid dropping events.")),o&&o.incrementDroppedEvents())}return s.enqueue=function(e){if(!k){var n=!1,t=!1;if(d.summarizeEvent(e),"feature"===e.kind?S()&&(n=!!e.trackEvents,t=D(e)):n=S(),n&&P(O(e)),t){var r=C({},e,{kind:"debug"});r.user=v.filterUser(r.user),delete r.trackEvents,delete r.debugEventsUntilDate,P(r)}}},s.flush=function(){if(k)return Promise.resolve();var e=w,n=d.getSummary();return d.clearSummary(),n&&(n.kind="summary",e.push(n)),o&&o.setEventsInLastBatch(e.length),0===e.length?Promise.resolve():(w=[],y.debug(ke(e.length)),c.sendEvents(e,l).then((function(e){e&&(e.serverTime&&(b=e.serverTime),f(e.status)||(k=!0),e.status>=400&&U((function(){a.maybeReportError(new i(ue(e.status,"event posting","some events were dropped")))})))})))},s.start=function(){r=setTimeout((function e(){s.flush(),r=setTimeout(e,h)}),h)},s.stop=function(){clearTimeout(r)},s}(u,w,k,T,h,S),q=Oe(u,w,k),V={},_={},J=w.streaming,z=!1,M=!1,H=!0,K=w.stateProvider,X=function(e,n){var t,r={setUser:function(e){var r=t&&O(t);(t=A(e))&&n&&n(O(t),r)},getUser:function(){return t?O(t):null}};return r}(0,(function(e,n){(function(e){K||e&&Q({kind:"identify",key:e.key,user:e,creationDate:(new Date).getTime()})})(e),!w.autoAliasingOptOut&&n&&n.anonymous&&e&&!e.anonymous&&ae(e,n)})),W=Pe(u.localStorage,m);function Q(e){if(k&&!(K&&K.enqueueEvent&&K.enqueueEvent(e))){if("alias"!==e.kind){if(!e.user)return void(H&&(m.warn("Be sure to call `identify` in the LaunchDarkly client: https://docs.launchdarkly.com/sdk/features/identify#javascript"),H=!1));H=!1}!b||M||u.isDoNotTrack()||(m.debug(be(e.kind)),F.enqueue(e))}}function Y(e,n,t,r){var o=X.getUser(),i=new Date,a=n?n.value:null;if(!w.allowFrequentDuplicateEvents){var u=JSON.stringify(a)+(o&&o.key?o.key:"")+e,s=V[u];if(s&&i-s<3e5)return;V[u]=i}var c={kind:"feature",key:e,user:o,value:a,variation:n?n.variationIndex:null,default:t,creationDate:i.getTime()};o&&o.anonymous&&(c.contextKind=oe(o));var l=_[e];l&&(c.version=l.flagVersion?l.flagVersion:l.version,c.trackEvents=l.trackEvents,c.debugEventsUntilDate=l.debugEventsUntilDate),(r||l&&l.trackReason)&&n&&(c.reason=n.reason),Q(c)}function ee(e,n,t,r){var o;if(_&&x(_,e)&&_[e]&&!_[e].deleted){var i=_[e];o=re(i),null!==i.value&&void 0!==i.value||(o.value=n)}else o={value:n,variationIndex:null,reason:{kind:"ERROR",errorKind:"FLAG_NOT_FOUND"}};return t&&Y(e,o,n,r),o}function re(e){return{value:e.value,variationIndex:void 0===e.variation?null:e.variation,reason:e.reason||null}}function oe(e){return e.anonymous?"anonymousUser":"user"}function ae(e,n){K||e&&n&&Q({kind:"alias",key:e.key,contextKind:oe(e),previousKey:n.key,previousContextKind:oe(n),creationDate:(new Date).getTime()})}function se(){v=!0,X.getUser()&&L.connect(X.getUser(),E,{ping:function(){m.debug("received ping message from stream");var e=X.getUser();q.fetchFlagSettings(e,E).then((function(n){P(e,X.getUser())&&le(n||{})})).catch((function(e){h.maybeReportError(new l(te(e)))}))},put:function(e){var n=JSON.parse(e.data);m.debug("received streaming update for all flags"),le(n)},patch:function(e){var n=JSON.parse(e.data),t=_[n.key];if(!t||!t.version||!n.version||t.version<n.version){m.debug(me(n.key));var r={},o=C({},n);delete o.key,_[n.key]=o;var i=re(o);r[n.key]=t?{previous:t.value,current:i}:{current:i},fe(r)}else m.debug(he(n.key))},delete:function(e){var n=JSON.parse(e.data);if(!_[n.key]||_[n.key].version<n.version){m.debug(ye(n.key));var t={};_[n.key]&&!_[n.key].deleted&&(t[n.key]={previous:_[n.key].value}),_[n.key]={version:n.version,deleted:!0},fe(t)}else m.debug(we(n.key))}})}function ce(){v&&(L.disconnect(),v=!1)}function le(e){var n={};if(!e)return Promise.resolve();for(var t in _)x(_,t)&&_[t]&&(e[t]&&!P(e[t].value,_[t].value)?n[t]={previous:_[t].value,current:re(e[t])}:e[t]&&!e[t].deleted||(n[t]={previous:_[t].value}));for(var o in e)x(e,o)&&e[o]&&(!_[o]||_[o].deleted)&&(n[o]={current:re(e[o])});return _=r({},e),fe(n).catch((function(){}))}function fe(e){var n=Object.keys(e);if(n.length>0){var t={};n.forEach((function(n){var r=e[n].current,o=r?r.value:void 0,i=e[n].previous;h.emit("change:"+n,o,i),t[n]=r?{current:o,previous:i}:{previous:i}})),h.emit("change",t),h.emit("internal-change",_),w.sendEventsOnlyForVariation||K||n.forEach((function(n){Y(n,e[n].current)}))}return d&&p?p.saveFlags(_).catch((function(){return null})):Promise.resolve()}function de(){var e=J||g&&void 0===J;e&&!v?se():!e&&v&&ce(),N&&N.setStreaming(e)}function ve(e){return"change"===e||"change:"===e.substr(0,"change".length+1)}if(u.localStorage&&(p=new Se(u.localStorage,k,E,X,m)),"string"==typeof w.bootstrap&&"LOCALSTORAGE"===w.bootstrap.toUpperCase()&&(p?d=!0:m.warn("localStorage is unavailable")),"object"===e(w.bootstrap)&&(_=function(e){var n=Object.keys(e),t=e.$flagsState;!t&&n.length&&m.warn(ie()),!1===e.$valid&&m.warn("LaunchDarkly bootstrap data is not available because the back end could not read the flags.");var r={};return n.forEach((function(n){if("$flagsState"!==n&&"$valid"!==n){var o={value:e[n]};t&&t[n]?o=C(o,t[n]):o.version=0,r[n]=o}})),r}(w.bootstrap)),K){var ge=K.getInitialState();ge?pe(ge):K.on("init",pe),K.on("update",(function(e){e.user&&X.setUser(e.user),e.flags&&le(e.flags)}))}else(n?W.validateUser(t).then((function(n){return X.setUser(n),"object"===e(w.bootstrap)?Ue():d?p.loadFlags().catch((function(){return null})).then((function(e){return null==e?(_={},q.fetchFlagSettings(X.getUser(),E).then((function(e){return le(e||{})})).then(Ue).catch((function(e){Ne(new l(te(e)))}))):(_=e,U(Ue),q.fetchFlagSettings(X.getUser(),E).then((function(e){return le(e)})).catch((function(e){return h.maybeReportError(e)})))})):q.fetchFlagSettings(X.getUser(),E).then((function(e){_=e||{},Ue()})).catch((function(e){_={},Ne(e)}))})):Promise.reject(new a(ne()))).catch(Ne);function pe(e){k=e.environment,X.setUser(e.user),_=r({},e.flags),U(Ue)}function Ue(){m.info("LaunchDarkly client initialized"),z=!0,de(),y.signalSuccess()}function Ne(e){y.signalFailure(e)}return{client:{waitForInitialization:function(){return y.getInitializationPromise()},waitUntilReady:function(){return y.getReadyPromise()},identify:function(e,n,t){return M?R(Promise.resolve({}),t):K?(m.warn("identify() has no effect here; it must be called on the main client instance"),R(Promise.resolve(I(_)),t)):R((d&&p?p.clearFlags():Promise.resolve()).then((function(){return W.validateUser(e)})).then((function(e){return q.fetchFlagSettings(e,n).then((function(t){var r=I(t);return X.setUser(e),E=n,t?le(t).then((function(){return r})):r}))})).then((function(e){return v&&se(),e})).catch((function(e){return h.maybeReportError(e),Promise.reject(e)})),t)},getUser:function(){return X.getUser()},variation:function(e,n){return ee(e,n,!0,!1).value},variationDetail:function(e,n){return ee(e,n,!0,!0)},track:function(e,n,t){if("string"==typeof e){u.customEventFilter&&!u.customEventFilter(e)&&m.warn(Z(e));var r=X.getUser(),o={kind:"custom",key:e,user:r,url:u.getCurrentUrl(),creationDate:(new Date).getTime()};r&&r.anonymous&&(o.contextKind=oe(r)),null!=n&&(o.data=n),null!=t&&(o.metricValue=t),Q(o)}else h.maybeReportError(new s(Z(e)))},alias:ae,on:function(e,n,t){ve(e)?(g=!0,z&&de(),h.on(e,n,t)):h.on.apply(h,arguments)},off:function(e){if(h.off.apply(h,arguments),ve(e)){var n=!1;h.getEvents().forEach((function(e){ve(e)&&h.getEventListenerCount(e)>0&&(n=!0)})),n||(g=!1,v&&void 0===J&&ce())}},setStreaming:function(e){var n=null===e?void 0:e;n!==J&&(J=n,de())},flush:function(e){return R(b?F.flush():Promise.resolve(),e)},allFlags:function(){var e={};if(!_)return e;for(var n in _)x(_,n)&&(e[n]=ee(n,null,!w.sendEventsOnlyForVariation).value);return e},close:function(e){if(M)return R(Promise.resolve(),e);var n=function(){M=!0,_={}};return R(Promise.resolve().then((function(){if(ce(),N&&N.stop(),b)return F.stop(),F.flush()})).then(n).catch(n),e)}},options:w,emitter:h,ident:X,logger:m,requestor:q,start:function(){b&&(N&&N.start(),F.start())},enqueueEvent:Q,getFlagsInternal:function(){return _},getEnvironmentId:function(){return k},internalChangeEventName:"internal-change"}}function Le(e,n,t){return n in e?Object.defineProperty(e,n,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[n]=t,e}function Fe(e,n){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);n&&(r=r.filter((function(n){return Object.getOwnPropertyDescriptor(e,n).enumerable}))),t.push.apply(t,r)}return t}function Ce(e){for(var n=1;n<arguments.length;n++){var t=null!=arguments[n]?arguments[n]:{};n%2?Fe(Object(t),!0).forEach((function(n){Le(e,n,t[n])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(t)):Fe(Object(t)).forEach((function(n){Object.defineProperty(e,n,Object.getOwnPropertyDescriptor(t,n))}))}return e}var xe={promise:Promise.resolve({status:200,header:function(){return null},body:null})};function Ae(e,n,t,r,o){if(o&&!function(){var e=window.navigator&&window.navigator.userAgent;if(e){var n=e.match(/Chrom(e|ium)\/([0-9]+)\./);if(n)return parseInt(n[2],10)<73}return!0}())return xe;var i=new window.XMLHttpRequest;for(var a in i.open(e,n,!o),t||{})Object.prototype.hasOwnProperty.call(t,a)&&i.setRequestHeader(a,t[a]);if(o)return i.send(r),xe;var u;return{promise:new Promise((function(e,n){i.addEventListener("load",(function(){u||e({status:i.status,header:function(e){return i.getResponseHeader(e)},body:i.responseText})})),i.addEventListener("error",(function(){u||n(new Error)})),i.send(r)})),cancel:function(){u=!0,i.abort()}}}function qe(e){var n,t={synchronousFlush:!1};if(window.XMLHttpRequest){var r=e&&e.disableSyncEventPost;t.httpRequest=function(e,n,o,i){var a=t.synchronousFlush&!r;return t.synchronousFlush=!1,Ae(e,n,o,i,a)}}t.httpAllowsPost=function(){return void 0===n&&(n=!!window.XMLHttpRequest&&"withCredentials"in new window.XMLHttpRequest),n},t.httpFallbackPing=function(e){(new window.Image).src=e};var o,i=e&&e.eventUrlTransformer;t.getCurrentUrl=function(){return i?i(window.location.href):window.location.href},t.isDoNotTrack=function(){var e;return 1===(e=window.navigator&&void 0!==window.navigator.doNotTrack?window.navigator.doNotTrack:window.navigator&&void 0!==window.navigator.msDoNotTrack?window.navigator.msDoNotTrack:window.doNotTrack)||!0===e||"1"===e||"yes"===e};try{window.localStorage&&(t.localStorage={get:function(e){return new Promise((function(n){n(window.localStorage.getItem(e))}))},set:function(e,n){return new Promise((function(t){window.localStorage.setItem(e,n),t()}))},clear:function(e){return new Promise((function(n){window.localStorage.removeItem(e),n()}))}})}catch(e){t.localStorage=null}if(e&&e.useReport&&"function"==typeof window.EventSourcePolyfill&&window.EventSourcePolyfill.supportedOptions&&window.EventSourcePolyfill.supportedOptions.method?(t.eventSourceAllowsReport=!0,o=window.EventSourcePolyfill):(t.eventSourceAllowsReport=!1,o=window.EventSource),window.EventSource){var a=3e5;t.eventSourceFactory=function(e,n){var t=Ce(Ce({},{heartbeatTimeout:a,silentTimeout:a,skipDefaultHeaders:!0}),n);return new o(e,t)},t.eventSourceIsActive=function(e){return e.readyState===window.EventSource.OPEN||e.readyState===window.EventSource.CONNECTING}}return t.userAgent="JSClient",t.version="2.20.0",t.diagnosticSdkData={name:"js-client-sdk",version:"2.20.0"},t.diagnosticPlatformData={name:"JS"},t.diagnosticUseCombinedEvent=!0,t}var Ve=/[|\\{}()[\]^$+*?.]/g,_e=function(e){if("string"!=typeof e)throw new TypeError("Expected a string");return e.replace(Ve,"\\$&")};function Je(e,n,t,r){var o,i,a=(("substring"===e.kind||"regex"===e.kind)&&r.includes("/")?n:n.replace(r,"")).replace(t,"");switch(e.kind){case"exact":i=n,o=new RegExp("^"+_e(e.url)+"/?$");break;case"canonical":i=a,o=new RegExp("^"+_e(e.url)+"/?$");break;case"substring":i=a,o=new RegExp(".*"+_e(e.substring)+".*$");break;case"regex":i=a,o=new RegExp(e.pattern);break;default:return!1}return o.test(i)}function ze(e,n){for(var t={},r=null,o=[],i=0;i<e.length;i++)for(var a=e[i],u=a.urls||[],s=0;s<u.length;s++)if(Je(u[s],window.location.href,window.location.search,window.location.hash)){"pageview"===a.kind?n("pageview",a):(o.push(a),n("click_pageview",a));break}return o.length>0&&(r=function(e){for(var t=function(e,n){for(var t=[],r=0;r<n.length;r++)for(var o=e.target,i=n[r],a=i.selector,u=document.querySelectorAll(a);o&&u.length>0;){for(var s=0;s<u.length;s++)o===u[s]&&t.push(i);o=o.parentNode}return t}(e,o),r=0;r<t.length;r++)n("click",t[r])},document.addEventListener("click",r)),t.dispose=function(){document.removeEventListener("click",r)},t}function Me(e,n){var t,r;function o(){r&&r.dispose(),t&&t.length&&(r=ze(t,i))}function i(n,t){var r=e.ident.getUser(),o={kind:n,key:t.key,data:null,url:window.location.href,user:r,creationDate:(new Date).getTime()};return r&&r.anonymous&&(o.contextKind="anonymousUser"),"click"===n&&(o.selector=t.selector),e.enqueueEvent(o)}return e.requestor.fetchJSON("/sdk/goals/"+e.getEnvironmentId()).then((function(e){e&&e.length>0&&(r=ze(t=e,i),function(e,n){var t,r=window.location.href;function o(){(t=window.location.href)!==r&&(r=t,n())}!function e(n,t){n(),setTimeout((function(){e(n,t)}),t)}(o,e),window.history&&window.history.pushState?window.addEventListener("popstate",o):window.addEventListener("hashchange",o)}(300,o)),n()})).catch((function(t){e.emitter.maybeReportError(new d.LDUnexpectedResponseError((t&&t.message,t.message))),n()})),{}}var He={fetchGoals:{default:!0},hash:{type:"string"},eventProcessor:{type:"object"},eventUrlTransformer:{type:"function"},disableSyncEventPost:{default:!1}};function Ke(e,n){var t=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},r=qe(t),o=Ne(e,n,t,r,He),i=o.client,a=o.options,u=o.emitter,s=new Promise((function(e){var n=u.on("goalsReady",(function(){u.off("goalsReady",n),e()}))}));i.waitUntilGoalsReady=function(){return s},a.fetchGoals?Me(o,(function(){return u.emit("goalsReady")})):u.emit("goalsReady"),"complete"!==document.readyState?window.addEventListener("load",o.start):o.start();var c=function(){r.synchronousFlush=!0,i.flush().catch((function(){})),r.synchronousFlush=!1};return window.addEventListener("beforeunload",c),window.addEventListener("unload",c),i}var $e=Te,Be="2.20.0";var Ge={initialize:function(e,n){var t=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{};return console&&console.warn&&console.warn(Ee.deprecated("default export","named LDClient export")),Ke(e,n,t)},version:"2.20.0"};/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ge);
+//# sourceMappingURL=ldclient.es.js.map
 
 
 /***/ }),
@@ -50050,6 +50081,3007 @@ module.exports = function (list, options) {
     lastIdentifiers = newLastIdentifiers;
   };
 };
+
+/***/ }),
+
+/***/ "./node_modules/vue-ld/dist/index.es.js":
+/*!**********************************************!*\
+  !*** ./node_modules/vue-ld/dist/index.es.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LDRouteGuard": () => (/* binding */ __vue_component__),
+/* harmony export */   "VueLd": () => (/* binding */ plugin),
+/* harmony export */   "initialize": () => (/* binding */ initialize),
+/* harmony export */   "ldRedirectMixin": () => (/* binding */ ldRedirectMixin)
+/* harmony export */ });
+/* harmony import */ var launchdarkly_js_client_sdk__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! launchdarkly-js-client-sdk */ "./node_modules/launchdarkly-js-client-sdk/dist/ldclient.es.js");
+
+
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof __webpack_require__.g !== 'undefined' ? __webpack_require__.g : typeof self !== 'undefined' ? self : {};
+
+function createCommonjsModule(fn, basedir, module) {
+	return module = {
+	  path: basedir,
+	  exports: {},
+	  require: function (path, base) {
+      return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
+    }
+	}, fn(module, module.exports), module.exports;
+}
+
+function commonjsRequire () {
+	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
+}
+
+var check = function (it) {
+  return it && it.Math == Math && it;
+};
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global_1 =
+  // eslint-disable-next-line no-undef
+  check(typeof globalThis == 'object' && globalThis) ||
+  check(typeof window == 'object' && window) ||
+  check(typeof self == 'object' && self) ||
+  check(typeof commonjsGlobal == 'object' && commonjsGlobal) ||
+  // eslint-disable-next-line no-new-func
+  Function('return this')();
+
+var fails = function (exec) {
+  try {
+    return !!exec();
+  } catch (error) {
+    return true;
+  }
+};
+
+// Thank's IE8 for his funny defineProperty
+var descriptors = !fails(function () {
+  return Object.defineProperty({}, 1, { get: function () { return 7; } })[1] != 7;
+});
+
+var nativePropertyIsEnumerable = {}.propertyIsEnumerable;
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+
+// Nashorn ~ JDK8 bug
+var NASHORN_BUG = getOwnPropertyDescriptor && !nativePropertyIsEnumerable.call({ 1: 2 }, 1);
+
+// `Object.prototype.propertyIsEnumerable` method implementation
+// https://tc39.github.io/ecma262/#sec-object.prototype.propertyisenumerable
+var f = NASHORN_BUG ? function propertyIsEnumerable(V) {
+  var descriptor = getOwnPropertyDescriptor(this, V);
+  return !!descriptor && descriptor.enumerable;
+} : nativePropertyIsEnumerable;
+
+var objectPropertyIsEnumerable = {
+	f: f
+};
+
+var createPropertyDescriptor = function (bitmap, value) {
+  return {
+    enumerable: !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable: !(bitmap & 4),
+    value: value
+  };
+};
+
+var toString = {}.toString;
+
+var classofRaw = function (it) {
+  return toString.call(it).slice(8, -1);
+};
+
+var split = ''.split;
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var indexedObject = fails(function () {
+  // throws an error in rhino, see https://github.com/mozilla/rhino/issues/346
+  // eslint-disable-next-line no-prototype-builtins
+  return !Object('z').propertyIsEnumerable(0);
+}) ? function (it) {
+  return classofRaw(it) == 'String' ? split.call(it, '') : Object(it);
+} : Object;
+
+// `RequireObjectCoercible` abstract operation
+// https://tc39.github.io/ecma262/#sec-requireobjectcoercible
+var requireObjectCoercible = function (it) {
+  if (it == undefined) throw TypeError("Can't call method on " + it);
+  return it;
+};
+
+// toObject with fallback for non-array-like ES3 strings
+
+
+
+var toIndexedObject = function (it) {
+  return indexedObject(requireObjectCoercible(it));
+};
+
+var isObject = function (it) {
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+// `ToPrimitive` abstract operation
+// https://tc39.github.io/ecma262/#sec-toprimitive
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+var toPrimitive = function (input, PREFERRED_STRING) {
+  if (!isObject(input)) return input;
+  var fn, val;
+  if (PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;
+  if (typeof (fn = input.valueOf) == 'function' && !isObject(val = fn.call(input))) return val;
+  if (!PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+var hasOwnProperty = {}.hasOwnProperty;
+
+var has = function (it, key) {
+  return hasOwnProperty.call(it, key);
+};
+
+var document = global_1.document;
+// typeof document.createElement is 'object' in old IE
+var EXISTS = isObject(document) && isObject(document.createElement);
+
+var documentCreateElement = function (it) {
+  return EXISTS ? document.createElement(it) : {};
+};
+
+// Thank's IE8 for his funny defineProperty
+var ie8DomDefine = !descriptors && !fails(function () {
+  return Object.defineProperty(documentCreateElement('div'), 'a', {
+    get: function () { return 7; }
+  }).a != 7;
+});
+
+var nativeGetOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+
+// `Object.getOwnPropertyDescriptor` method
+// https://tc39.github.io/ecma262/#sec-object.getownpropertydescriptor
+var f$1 = descriptors ? nativeGetOwnPropertyDescriptor : function getOwnPropertyDescriptor(O, P) {
+  O = toIndexedObject(O);
+  P = toPrimitive(P, true);
+  if (ie8DomDefine) try {
+    return nativeGetOwnPropertyDescriptor(O, P);
+  } catch (error) { /* empty */ }
+  if (has(O, P)) return createPropertyDescriptor(!objectPropertyIsEnumerable.f.call(O, P), O[P]);
+};
+
+var objectGetOwnPropertyDescriptor = {
+	f: f$1
+};
+
+var anObject = function (it) {
+  if (!isObject(it)) {
+    throw TypeError(String(it) + ' is not an object');
+  } return it;
+};
+
+var nativeDefineProperty = Object.defineProperty;
+
+// `Object.defineProperty` method
+// https://tc39.github.io/ecma262/#sec-object.defineproperty
+var f$2 = descriptors ? nativeDefineProperty : function defineProperty(O, P, Attributes) {
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if (ie8DomDefine) try {
+    return nativeDefineProperty(O, P, Attributes);
+  } catch (error) { /* empty */ }
+  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported');
+  if ('value' in Attributes) O[P] = Attributes.value;
+  return O;
+};
+
+var objectDefineProperty = {
+	f: f$2
+};
+
+var createNonEnumerableProperty = descriptors ? function (object, key, value) {
+  return objectDefineProperty.f(object, key, createPropertyDescriptor(1, value));
+} : function (object, key, value) {
+  object[key] = value;
+  return object;
+};
+
+var setGlobal = function (key, value) {
+  try {
+    createNonEnumerableProperty(global_1, key, value);
+  } catch (error) {
+    global_1[key] = value;
+  } return value;
+};
+
+var SHARED = '__core-js_shared__';
+var store = global_1[SHARED] || setGlobal(SHARED, {});
+
+var sharedStore = store;
+
+var functionToString = Function.toString;
+
+// this helper broken in `3.4.1-3.4.4`, so we can't use `shared` helper
+if (typeof sharedStore.inspectSource != 'function') {
+  sharedStore.inspectSource = function (it) {
+    return functionToString.call(it);
+  };
+}
+
+var inspectSource = sharedStore.inspectSource;
+
+var WeakMap = global_1.WeakMap;
+
+var nativeWeakMap = typeof WeakMap === 'function' && /native code/.test(inspectSource(WeakMap));
+
+var shared = createCommonjsModule(function (module) {
+(module.exports = function (key, value) {
+  return sharedStore[key] || (sharedStore[key] = value !== undefined ? value : {});
+})('versions', []).push({
+  version: '3.6.5',
+  mode:  'global',
+  copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
+});
+});
+
+var id = 0;
+var postfix = Math.random();
+
+var uid = function (key) {
+  return 'Symbol(' + String(key === undefined ? '' : key) + ')_' + (++id + postfix).toString(36);
+};
+
+var keys = shared('keys');
+
+var sharedKey = function (key) {
+  return keys[key] || (keys[key] = uid(key));
+};
+
+var hiddenKeys = {};
+
+var WeakMap$1 = global_1.WeakMap;
+var set, get, has$1;
+
+var enforce = function (it) {
+  return has$1(it) ? get(it) : set(it, {});
+};
+
+var getterFor = function (TYPE) {
+  return function (it) {
+    var state;
+    if (!isObject(it) || (state = get(it)).type !== TYPE) {
+      throw TypeError('Incompatible receiver, ' + TYPE + ' required');
+    } return state;
+  };
+};
+
+if (nativeWeakMap) {
+  var store$1 = new WeakMap$1();
+  var wmget = store$1.get;
+  var wmhas = store$1.has;
+  var wmset = store$1.set;
+  set = function (it, metadata) {
+    wmset.call(store$1, it, metadata);
+    return metadata;
+  };
+  get = function (it) {
+    return wmget.call(store$1, it) || {};
+  };
+  has$1 = function (it) {
+    return wmhas.call(store$1, it);
+  };
+} else {
+  var STATE = sharedKey('state');
+  hiddenKeys[STATE] = true;
+  set = function (it, metadata) {
+    createNonEnumerableProperty(it, STATE, metadata);
+    return metadata;
+  };
+  get = function (it) {
+    return has(it, STATE) ? it[STATE] : {};
+  };
+  has$1 = function (it) {
+    return has(it, STATE);
+  };
+}
+
+var internalState = {
+  set: set,
+  get: get,
+  has: has$1,
+  enforce: enforce,
+  getterFor: getterFor
+};
+
+var redefine = createCommonjsModule(function (module) {
+var getInternalState = internalState.get;
+var enforceInternalState = internalState.enforce;
+var TEMPLATE = String(String).split('String');
+
+(module.exports = function (O, key, value, options) {
+  var unsafe = options ? !!options.unsafe : false;
+  var simple = options ? !!options.enumerable : false;
+  var noTargetGet = options ? !!options.noTargetGet : false;
+  if (typeof value == 'function') {
+    if (typeof key == 'string' && !has(value, 'name')) createNonEnumerableProperty(value, 'name', key);
+    enforceInternalState(value).source = TEMPLATE.join(typeof key == 'string' ? key : '');
+  }
+  if (O === global_1) {
+    if (simple) O[key] = value;
+    else setGlobal(key, value);
+    return;
+  } else if (!unsafe) {
+    delete O[key];
+  } else if (!noTargetGet && O[key]) {
+    simple = true;
+  }
+  if (simple) O[key] = value;
+  else createNonEnumerableProperty(O, key, value);
+// add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
+})(Function.prototype, 'toString', function toString() {
+  return typeof this == 'function' && getInternalState(this).source || inspectSource(this);
+});
+});
+
+var path = global_1;
+
+var aFunction = function (variable) {
+  return typeof variable == 'function' ? variable : undefined;
+};
+
+var getBuiltIn = function (namespace, method) {
+  return arguments.length < 2 ? aFunction(path[namespace]) || aFunction(global_1[namespace])
+    : path[namespace] && path[namespace][method] || global_1[namespace] && global_1[namespace][method];
+};
+
+var ceil = Math.ceil;
+var floor = Math.floor;
+
+// `ToInteger` abstract operation
+// https://tc39.github.io/ecma262/#sec-tointeger
+var toInteger = function (argument) {
+  return isNaN(argument = +argument) ? 0 : (argument > 0 ? floor : ceil)(argument);
+};
+
+var min = Math.min;
+
+// `ToLength` abstract operation
+// https://tc39.github.io/ecma262/#sec-tolength
+var toLength = function (argument) {
+  return argument > 0 ? min(toInteger(argument), 0x1FFFFFFFFFFFFF) : 0; // 2 ** 53 - 1 == 9007199254740991
+};
+
+var max = Math.max;
+var min$1 = Math.min;
+
+// Helper for a popular repeating case of the spec:
+// Let integer be ? ToInteger(index).
+// If integer < 0, let result be max((length + integer), 0); else let result be min(integer, length).
+var toAbsoluteIndex = function (index, length) {
+  var integer = toInteger(index);
+  return integer < 0 ? max(integer + length, 0) : min$1(integer, length);
+};
+
+// `Array.prototype.{ indexOf, includes }` methods implementation
+var createMethod = function (IS_INCLUDES) {
+  return function ($this, el, fromIndex) {
+    var O = toIndexedObject($this);
+    var length = toLength(O.length);
+    var index = toAbsoluteIndex(fromIndex, length);
+    var value;
+    // Array#includes uses SameValueZero equality algorithm
+    // eslint-disable-next-line no-self-compare
+    if (IS_INCLUDES && el != el) while (length > index) {
+      value = O[index++];
+      // eslint-disable-next-line no-self-compare
+      if (value != value) return true;
+    // Array#indexOf ignores holes, Array#includes - not
+    } else for (;length > index; index++) {
+      if ((IS_INCLUDES || index in O) && O[index] === el) return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
+};
+
+var arrayIncludes = {
+  // `Array.prototype.includes` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.includes
+  includes: createMethod(true),
+  // `Array.prototype.indexOf` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.indexof
+  indexOf: createMethod(false)
+};
+
+var indexOf = arrayIncludes.indexOf;
+
+
+var objectKeysInternal = function (object, names) {
+  var O = toIndexedObject(object);
+  var i = 0;
+  var result = [];
+  var key;
+  for (key in O) !has(hiddenKeys, key) && has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while (names.length > i) if (has(O, key = names[i++])) {
+    ~indexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+
+// IE8- don't enum bug keys
+var enumBugKeys = [
+  'constructor',
+  'hasOwnProperty',
+  'isPrototypeOf',
+  'propertyIsEnumerable',
+  'toLocaleString',
+  'toString',
+  'valueOf'
+];
+
+var hiddenKeys$1 = enumBugKeys.concat('length', 'prototype');
+
+// `Object.getOwnPropertyNames` method
+// https://tc39.github.io/ecma262/#sec-object.getownpropertynames
+var f$3 = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
+  return objectKeysInternal(O, hiddenKeys$1);
+};
+
+var objectGetOwnPropertyNames = {
+	f: f$3
+};
+
+var f$4 = Object.getOwnPropertySymbols;
+
+var objectGetOwnPropertySymbols = {
+	f: f$4
+};
+
+// all object keys, includes non-enumerable and symbols
+var ownKeys = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
+  var keys = objectGetOwnPropertyNames.f(anObject(it));
+  var getOwnPropertySymbols = objectGetOwnPropertySymbols.f;
+  return getOwnPropertySymbols ? keys.concat(getOwnPropertySymbols(it)) : keys;
+};
+
+var copyConstructorProperties = function (target, source) {
+  var keys = ownKeys(source);
+  var defineProperty = objectDefineProperty.f;
+  var getOwnPropertyDescriptor = objectGetOwnPropertyDescriptor.f;
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    if (!has(target, key)) defineProperty(target, key, getOwnPropertyDescriptor(source, key));
+  }
+};
+
+var replacement = /#|\.prototype\./;
+
+var isForced = function (feature, detection) {
+  var value = data[normalize(feature)];
+  return value == POLYFILL ? true
+    : value == NATIVE ? false
+    : typeof detection == 'function' ? fails(detection)
+    : !!detection;
+};
+
+var normalize = isForced.normalize = function (string) {
+  return String(string).replace(replacement, '.').toLowerCase();
+};
+
+var data = isForced.data = {};
+var NATIVE = isForced.NATIVE = 'N';
+var POLYFILL = isForced.POLYFILL = 'P';
+
+var isForced_1 = isForced;
+
+var getOwnPropertyDescriptor$1 = objectGetOwnPropertyDescriptor.f;
+
+
+
+
+
+
+/*
+  options.target      - name of the target object
+  options.global      - target is the global object
+  options.stat        - export as static methods of target
+  options.proto       - export as prototype methods of target
+  options.real        - real prototype method for the `pure` version
+  options.forced      - export even if the native feature is available
+  options.bind        - bind methods to the target, required for the `pure` version
+  options.wrap        - wrap constructors to preventing global pollution, required for the `pure` version
+  options.unsafe      - use the simple assignment of property instead of delete + defineProperty
+  options.sham        - add a flag to not completely full polyfills
+  options.enumerable  - export as enumerable property
+  options.noTargetGet - prevent calling a getter on target
+*/
+var _export = function (options, source) {
+  var TARGET = options.target;
+  var GLOBAL = options.global;
+  var STATIC = options.stat;
+  var FORCED, target, key, targetProperty, sourceProperty, descriptor;
+  if (GLOBAL) {
+    target = global_1;
+  } else if (STATIC) {
+    target = global_1[TARGET] || setGlobal(TARGET, {});
+  } else {
+    target = (global_1[TARGET] || {}).prototype;
+  }
+  if (target) for (key in source) {
+    sourceProperty = source[key];
+    if (options.noTargetGet) {
+      descriptor = getOwnPropertyDescriptor$1(target, key);
+      targetProperty = descriptor && descriptor.value;
+    } else targetProperty = target[key];
+    FORCED = isForced_1(GLOBAL ? key : TARGET + (STATIC ? '.' : '#') + key, options.forced);
+    // contained in target
+    if (!FORCED && targetProperty !== undefined) {
+      if (typeof sourceProperty === typeof targetProperty) continue;
+      copyConstructorProperties(sourceProperty, targetProperty);
+    }
+    // add a flag to not completely full polyfills
+    if (options.sham || (targetProperty && targetProperty.sham)) {
+      createNonEnumerableProperty(sourceProperty, 'sham', true);
+    }
+    // extend global
+    redefine(target, key, sourceProperty, options);
+  }
+};
+
+var aFunction$1 = function (it) {
+  if (typeof it != 'function') {
+    throw TypeError(String(it) + ' is not a function');
+  } return it;
+};
+
+// optional / simple context binding
+var functionBindContext = function (fn, that, length) {
+  aFunction$1(fn);
+  if (that === undefined) return fn;
+  switch (length) {
+    case 0: return function () {
+      return fn.call(that);
+    };
+    case 1: return function (a) {
+      return fn.call(that, a);
+    };
+    case 2: return function (a, b) {
+      return fn.call(that, a, b);
+    };
+    case 3: return function (a, b, c) {
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function (/* ...args */) {
+    return fn.apply(that, arguments);
+  };
+};
+
+// `ToObject` abstract operation
+// https://tc39.github.io/ecma262/#sec-toobject
+var toObject = function (argument) {
+  return Object(requireObjectCoercible(argument));
+};
+
+// `IsArray` abstract operation
+// https://tc39.github.io/ecma262/#sec-isarray
+var isArray = Array.isArray || function isArray(arg) {
+  return classofRaw(arg) == 'Array';
+};
+
+var nativeSymbol = !!Object.getOwnPropertySymbols && !fails(function () {
+  // Chrome 38 Symbol has incorrect toString conversion
+  // eslint-disable-next-line no-undef
+  return !String(Symbol());
+});
+
+var useSymbolAsUid = nativeSymbol
+  // eslint-disable-next-line no-undef
+  && !Symbol.sham
+  // eslint-disable-next-line no-undef
+  && typeof Symbol.iterator == 'symbol';
+
+var WellKnownSymbolsStore = shared('wks');
+var Symbol$1 = global_1.Symbol;
+var createWellKnownSymbol = useSymbolAsUid ? Symbol$1 : Symbol$1 && Symbol$1.withoutSetter || uid;
+
+var wellKnownSymbol = function (name) {
+  if (!has(WellKnownSymbolsStore, name)) {
+    if (nativeSymbol && has(Symbol$1, name)) WellKnownSymbolsStore[name] = Symbol$1[name];
+    else WellKnownSymbolsStore[name] = createWellKnownSymbol('Symbol.' + name);
+  } return WellKnownSymbolsStore[name];
+};
+
+var SPECIES = wellKnownSymbol('species');
+
+// `ArraySpeciesCreate` abstract operation
+// https://tc39.github.io/ecma262/#sec-arrayspeciescreate
+var arraySpeciesCreate = function (originalArray, length) {
+  var C;
+  if (isArray(originalArray)) {
+    C = originalArray.constructor;
+    // cross-realm fallback
+    if (typeof C == 'function' && (C === Array || isArray(C.prototype))) C = undefined;
+    else if (isObject(C)) {
+      C = C[SPECIES];
+      if (C === null) C = undefined;
+    }
+  } return new (C === undefined ? Array : C)(length === 0 ? 0 : length);
+};
+
+var push = [].push;
+
+// `Array.prototype.{ forEach, map, filter, some, every, find, findIndex }` methods implementation
+var createMethod$1 = function (TYPE) {
+  var IS_MAP = TYPE == 1;
+  var IS_FILTER = TYPE == 2;
+  var IS_SOME = TYPE == 3;
+  var IS_EVERY = TYPE == 4;
+  var IS_FIND_INDEX = TYPE == 6;
+  var NO_HOLES = TYPE == 5 || IS_FIND_INDEX;
+  return function ($this, callbackfn, that, specificCreate) {
+    var O = toObject($this);
+    var self = indexedObject(O);
+    var boundFunction = functionBindContext(callbackfn, that, 3);
+    var length = toLength(self.length);
+    var index = 0;
+    var create = specificCreate || arraySpeciesCreate;
+    var target = IS_MAP ? create($this, length) : IS_FILTER ? create($this, 0) : undefined;
+    var value, result;
+    for (;length > index; index++) if (NO_HOLES || index in self) {
+      value = self[index];
+      result = boundFunction(value, index, O);
+      if (TYPE) {
+        if (IS_MAP) target[index] = result; // map
+        else if (result) switch (TYPE) {
+          case 3: return true;              // some
+          case 5: return value;             // find
+          case 6: return index;             // findIndex
+          case 2: push.call(target, value); // filter
+        } else if (IS_EVERY) return false;  // every
+      }
+    }
+    return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : target;
+  };
+};
+
+var arrayIteration = {
+  // `Array.prototype.forEach` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.foreach
+  forEach: createMethod$1(0),
+  // `Array.prototype.map` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.map
+  map: createMethod$1(1),
+  // `Array.prototype.filter` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.filter
+  filter: createMethod$1(2),
+  // `Array.prototype.some` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.some
+  some: createMethod$1(3),
+  // `Array.prototype.every` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.every
+  every: createMethod$1(4),
+  // `Array.prototype.find` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.find
+  find: createMethod$1(5),
+  // `Array.prototype.findIndex` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.findIndex
+  findIndex: createMethod$1(6)
+};
+
+var engineUserAgent = getBuiltIn('navigator', 'userAgent') || '';
+
+var process = global_1.process;
+var versions = process && process.versions;
+var v8 = versions && versions.v8;
+var match, version;
+
+if (v8) {
+  match = v8.split('.');
+  version = match[0] + match[1];
+} else if (engineUserAgent) {
+  match = engineUserAgent.match(/Edge\/(\d+)/);
+  if (!match || match[1] >= 74) {
+    match = engineUserAgent.match(/Chrome\/(\d+)/);
+    if (match) version = match[1];
+  }
+}
+
+var engineV8Version = version && +version;
+
+var SPECIES$1 = wellKnownSymbol('species');
+
+var arrayMethodHasSpeciesSupport = function (METHOD_NAME) {
+  // We can't use this feature detection in V8 since it causes
+  // deoptimization and serious performance degradation
+  // https://github.com/zloirock/core-js/issues/677
+  return engineV8Version >= 51 || !fails(function () {
+    var array = [];
+    var constructor = array.constructor = {};
+    constructor[SPECIES$1] = function () {
+      return { foo: 1 };
+    };
+    return array[METHOD_NAME](Boolean).foo !== 1;
+  });
+};
+
+var defineProperty = Object.defineProperty;
+var cache = {};
+
+var thrower = function (it) { throw it; };
+
+var arrayMethodUsesToLength = function (METHOD_NAME, options) {
+  if (has(cache, METHOD_NAME)) return cache[METHOD_NAME];
+  if (!options) options = {};
+  var method = [][METHOD_NAME];
+  var ACCESSORS = has(options, 'ACCESSORS') ? options.ACCESSORS : false;
+  var argument0 = has(options, 0) ? options[0] : thrower;
+  var argument1 = has(options, 1) ? options[1] : undefined;
+
+  return cache[METHOD_NAME] = !!method && !fails(function () {
+    if (ACCESSORS && !descriptors) return true;
+    var O = { length: -1 };
+
+    if (ACCESSORS) defineProperty(O, 1, { enumerable: true, get: thrower });
+    else O[1] = 1;
+
+    method.call(O, argument0, argument1);
+  });
+};
+
+var $map = arrayIteration.map;
+
+
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('map');
+// FF49- issue
+var USES_TO_LENGTH = arrayMethodUsesToLength('map');
+
+// `Array.prototype.map` method
+// https://tc39.github.io/ecma262/#sec-array.prototype.map
+// with adding support of @@species
+_export({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGTH }, {
+  map: function map(callbackfn /* , thisArg */) {
+    return $map(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+var iterators = {};
+
+var ITERATOR = wellKnownSymbol('iterator');
+var ArrayPrototype = Array.prototype;
+
+// check on default Array iterator
+var isArrayIteratorMethod = function (it) {
+  return it !== undefined && (iterators.Array === it || ArrayPrototype[ITERATOR] === it);
+};
+
+var TO_STRING_TAG = wellKnownSymbol('toStringTag');
+var test = {};
+
+test[TO_STRING_TAG] = 'z';
+
+var toStringTagSupport = String(test) === '[object z]';
+
+var TO_STRING_TAG$1 = wellKnownSymbol('toStringTag');
+// ES3 wrong here
+var CORRECT_ARGUMENTS = classofRaw(function () { return arguments; }()) == 'Arguments';
+
+// fallback for IE11 Script Access Denied error
+var tryGet = function (it, key) {
+  try {
+    return it[key];
+  } catch (error) { /* empty */ }
+};
+
+// getting tag from ES6+ `Object.prototype.toString`
+var classof = toStringTagSupport ? classofRaw : function (it) {
+  var O, tag, result;
+  return it === undefined ? 'Undefined' : it === null ? 'Null'
+    // @@toStringTag case
+    : typeof (tag = tryGet(O = Object(it), TO_STRING_TAG$1)) == 'string' ? tag
+    // builtinTag case
+    : CORRECT_ARGUMENTS ? classofRaw(O)
+    // ES3 arguments fallback
+    : (result = classofRaw(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : result;
+};
+
+var ITERATOR$1 = wellKnownSymbol('iterator');
+
+var getIteratorMethod = function (it) {
+  if (it != undefined) return it[ITERATOR$1]
+    || it['@@iterator']
+    || iterators[classof(it)];
+};
+
+// call something on iterator step with safe closing on error
+var callWithSafeIterationClosing = function (iterator, fn, value, ENTRIES) {
+  try {
+    return ENTRIES ? fn(anObject(value)[0], value[1]) : fn(value);
+  // 7.4.6 IteratorClose(iterator, completion)
+  } catch (error) {
+    var returnMethod = iterator['return'];
+    if (returnMethod !== undefined) anObject(returnMethod.call(iterator));
+    throw error;
+  }
+};
+
+var iterate_1 = createCommonjsModule(function (module) {
+var Result = function (stopped, result) {
+  this.stopped = stopped;
+  this.result = result;
+};
+
+var iterate = module.exports = function (iterable, fn, that, AS_ENTRIES, IS_ITERATOR) {
+  var boundFunction = functionBindContext(fn, that, AS_ENTRIES ? 2 : 1);
+  var iterator, iterFn, index, length, result, next, step;
+
+  if (IS_ITERATOR) {
+    iterator = iterable;
+  } else {
+    iterFn = getIteratorMethod(iterable);
+    if (typeof iterFn != 'function') throw TypeError('Target is not iterable');
+    // optimisation for array iterators
+    if (isArrayIteratorMethod(iterFn)) {
+      for (index = 0, length = toLength(iterable.length); length > index; index++) {
+        result = AS_ENTRIES
+          ? boundFunction(anObject(step = iterable[index])[0], step[1])
+          : boundFunction(iterable[index]);
+        if (result && result instanceof Result) return result;
+      } return new Result(false);
+    }
+    iterator = iterFn.call(iterable);
+  }
+
+  next = iterator.next;
+  while (!(step = next.call(iterator)).done) {
+    result = callWithSafeIterationClosing(iterator, boundFunction, step.value, AS_ENTRIES);
+    if (typeof result == 'object' && result && result instanceof Result) return result;
+  } return new Result(false);
+};
+
+iterate.stop = function (result) {
+  return new Result(true, result);
+};
+});
+
+var createProperty = function (object, key, value) {
+  var propertyKey = toPrimitive(key);
+  if (propertyKey in object) objectDefineProperty.f(object, propertyKey, createPropertyDescriptor(0, value));
+  else object[propertyKey] = value;
+};
+
+// `Object.fromEntries` method
+// https://github.com/tc39/proposal-object-from-entries
+_export({ target: 'Object', stat: true }, {
+  fromEntries: function fromEntries(iterable) {
+    var obj = {};
+    iterate_1(iterable, function (k, v) {
+      createProperty(obj, k, v);
+    }, undefined, true);
+    return obj;
+  }
+});
+
+// `Object.keys` method
+// https://tc39.github.io/ecma262/#sec-object.keys
+var objectKeys = Object.keys || function keys(O) {
+  return objectKeysInternal(O, enumBugKeys);
+};
+
+var FAILS_ON_PRIMITIVES = fails(function () { objectKeys(1); });
+
+// `Object.keys` method
+// https://tc39.github.io/ecma262/#sec-object.keys
+_export({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
+  keys: function keys(it) {
+    return objectKeys(toObject(it));
+  }
+});
+
+// `Object.prototype.toString` method implementation
+// https://tc39.github.io/ecma262/#sec-object.prototype.tostring
+var objectToString = toStringTagSupport ? {}.toString : function toString() {
+  return '[object ' + classof(this) + ']';
+};
+
+// `Object.prototype.toString` method
+// https://tc39.github.io/ecma262/#sec-object.prototype.tostring
+if (!toStringTagSupport) {
+  redefine(Object.prototype, 'toString', objectToString, { unsafe: true });
+}
+
+// `RegExp.prototype.flags` getter implementation
+// https://tc39.github.io/ecma262/#sec-get-regexp.prototype.flags
+var regexpFlags = function () {
+  var that = anObject(this);
+  var result = '';
+  if (that.global) result += 'g';
+  if (that.ignoreCase) result += 'i';
+  if (that.multiline) result += 'm';
+  if (that.dotAll) result += 's';
+  if (that.unicode) result += 'u';
+  if (that.sticky) result += 'y';
+  return result;
+};
+
+// babel-minify transpiles RegExp('a', 'y') -> /a/y and it causes SyntaxError,
+// so we use an intermediate function.
+function RE(s, f) {
+  return RegExp(s, f);
+}
+
+var UNSUPPORTED_Y = fails(function () {
+  // babel-minify transpiles RegExp('a', 'y') -> /a/y and it causes SyntaxError
+  var re = RE('a', 'y');
+  re.lastIndex = 2;
+  return re.exec('abcd') != null;
+});
+
+var BROKEN_CARET = fails(function () {
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=773687
+  var re = RE('^r', 'gy');
+  re.lastIndex = 2;
+  return re.exec('str') != null;
+});
+
+var regexpStickyHelpers = {
+	UNSUPPORTED_Y: UNSUPPORTED_Y,
+	BROKEN_CARET: BROKEN_CARET
+};
+
+var UNSUPPORTED_Y$1 = regexpStickyHelpers.UNSUPPORTED_Y;
+
+// `RegExp.prototype.flags` getter
+// https://tc39.github.io/ecma262/#sec-get-regexp.prototype.flags
+if (descriptors && (/./g.flags != 'g' || UNSUPPORTED_Y$1)) {
+  objectDefineProperty.f(RegExp.prototype, 'flags', {
+    configurable: true,
+    get: regexpFlags
+  });
+}
+
+var runtime_1 = createCommonjsModule(function (module) {
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var runtime = (function (exports) {
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined$1; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  exports.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      define(prototype, method, function(arg) {
+        return this._invoke(method, arg);
+      });
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new PromiseImpl(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  exports.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
+
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined$1) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined$1;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined$1;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  define(Gp, toStringTagSymbol, "Generator");
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined$1;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  exports.values = values;
+
+  function doneResult() {
+    return { value: undefined$1, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined$1;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined$1;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined$1;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined$1;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined$1;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   module.exports 
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  Function("r", "regeneratorRuntime = r")(runtime);
+}
+});
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys$1(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys$1(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys$1(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
+
+var _freeGlobal = freeGlobal;
+
+/** Detect free variable `self`. */
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = _freeGlobal || freeSelf || Function('return this')();
+
+var _root = root;
+
+/** Built-in value references. */
+var Symbol$2 = _root.Symbol;
+
+var _Symbol = Symbol$2;
+
+/**
+ * A specialized version of `_.map` for arrays without support for iteratee
+ * shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the new mapped array.
+ */
+function arrayMap(array, iteratee) {
+  var index = -1,
+      length = array == null ? 0 : array.length,
+      result = Array(length);
+
+  while (++index < length) {
+    result[index] = iteratee(array[index], index, array);
+  }
+  return result;
+}
+
+var _arrayMap = arrayMap;
+
+/**
+ * Checks if `value` is classified as an `Array` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+ * @example
+ *
+ * _.isArray([1, 2, 3]);
+ * // => true
+ *
+ * _.isArray(document.body.children);
+ * // => false
+ *
+ * _.isArray('abc');
+ * // => false
+ *
+ * _.isArray(_.noop);
+ * // => false
+ */
+var isArray$1 = Array.isArray;
+
+var isArray_1 = isArray$1;
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty$1 = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/** Built-in value references. */
+var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+
+/**
+ * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the raw `toStringTag`.
+ */
+function getRawTag(value) {
+  var isOwn = hasOwnProperty$1.call(value, symToStringTag),
+      tag = value[symToStringTag];
+
+  try {
+    value[symToStringTag] = undefined;
+    var unmasked = true;
+  } catch (e) {}
+
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag] = tag;
+    } else {
+      delete value[symToStringTag];
+    }
+  }
+  return result;
+}
+
+var _getRawTag = getRawTag;
+
+/** Used for built-in method references. */
+var objectProto$1 = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString$1 = objectProto$1.toString;
+
+/**
+ * Converts `value` to a string using `Object.prototype.toString`.
+ *
+ * @private
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ */
+function objectToString$1(value) {
+  return nativeObjectToString$1.call(value);
+}
+
+var _objectToString = objectToString$1;
+
+/** `Object#toString` result references. */
+var nullTag = '[object Null]',
+    undefinedTag = '[object Undefined]';
+
+/** Built-in value references. */
+var symToStringTag$1 = _Symbol ? _Symbol.toStringTag : undefined;
+
+/**
+ * The base implementation of `getTag` without fallbacks for buggy environments.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+function baseGetTag(value) {
+  if (value == null) {
+    return value === undefined ? undefinedTag : nullTag;
+  }
+  return (symToStringTag$1 && symToStringTag$1 in Object(value))
+    ? _getRawTag(value)
+    : _objectToString(value);
+}
+
+var _baseGetTag = baseGetTag;
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return value != null && typeof value == 'object';
+}
+
+var isObjectLike_1 = isObjectLike;
+
+/** `Object#toString` result references. */
+var symbolTag = '[object Symbol]';
+
+/**
+ * Checks if `value` is classified as a `Symbol` primitive or object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+ * @example
+ *
+ * _.isSymbol(Symbol.iterator);
+ * // => true
+ *
+ * _.isSymbol('abc');
+ * // => false
+ */
+function isSymbol(value) {
+  return typeof value == 'symbol' ||
+    (isObjectLike_1(value) && _baseGetTag(value) == symbolTag);
+}
+
+var isSymbol_1 = isSymbol;
+
+/** Used as references for various `Number` constants. */
+var INFINITY = 1 / 0;
+
+/** Used to convert symbols to primitives and strings. */
+var symbolProto = _Symbol ? _Symbol.prototype : undefined,
+    symbolToString = symbolProto ? symbolProto.toString : undefined;
+
+/**
+ * The base implementation of `_.toString` which doesn't convert nullish
+ * values to empty strings.
+ *
+ * @private
+ * @param {*} value The value to process.
+ * @returns {string} Returns the string.
+ */
+function baseToString(value) {
+  // Exit early for strings to avoid a performance hit in some environments.
+  if (typeof value == 'string') {
+    return value;
+  }
+  if (isArray_1(value)) {
+    // Recursively convert values (susceptible to call stack limits).
+    return _arrayMap(value, baseToString) + '';
+  }
+  if (isSymbol_1(value)) {
+    return symbolToString ? symbolToString.call(value) : '';
+  }
+  var result = (value + '');
+  return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result;
+}
+
+var _baseToString = baseToString;
+
+/**
+ * Converts `value` to a string. An empty string is returned for `null`
+ * and `undefined` values. The sign of `-0` is preserved.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ * @example
+ *
+ * _.toString(null);
+ * // => ''
+ *
+ * _.toString(-0);
+ * // => '-0'
+ *
+ * _.toString([1, 2, 3]);
+ * // => '1,2,3'
+ */
+function toString$1(value) {
+  return value == null ? '' : _baseToString(value);
+}
+
+var toString_1 = toString$1;
+
+/**
+ * The base implementation of `_.slice` without an iteratee call guard.
+ *
+ * @private
+ * @param {Array} array The array to slice.
+ * @param {number} [start=0] The start position.
+ * @param {number} [end=array.length] The end position.
+ * @returns {Array} Returns the slice of `array`.
+ */
+function baseSlice(array, start, end) {
+  var index = -1,
+      length = array.length;
+
+  if (start < 0) {
+    start = -start > length ? 0 : (length + start);
+  }
+  end = end > length ? length : end;
+  if (end < 0) {
+    end += length;
+  }
+  length = start > end ? 0 : ((end - start) >>> 0);
+  start >>>= 0;
+
+  var result = Array(length);
+  while (++index < length) {
+    result[index] = array[index + start];
+  }
+  return result;
+}
+
+var _baseSlice = baseSlice;
+
+/**
+ * Casts `array` to a slice if it's needed.
+ *
+ * @private
+ * @param {Array} array The array to inspect.
+ * @param {number} start The start position.
+ * @param {number} [end=array.length] The end position.
+ * @returns {Array} Returns the cast slice.
+ */
+function castSlice(array, start, end) {
+  var length = array.length;
+  end = end === undefined ? length : end;
+  return (!start && end >= length) ? array : _baseSlice(array, start, end);
+}
+
+var _castSlice = castSlice;
+
+/** Used to compose unicode character classes. */
+var rsAstralRange = '\\ud800-\\udfff',
+    rsComboMarksRange = '\\u0300-\\u036f',
+    reComboHalfMarksRange = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange = '\\u20d0-\\u20ff',
+    rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange,
+    rsVarRange = '\\ufe0e\\ufe0f';
+
+/** Used to compose unicode capture groups. */
+var rsZWJ = '\\u200d';
+
+/** Used to detect strings with [zero-width joiners or code points from the astral planes](http://eev.ee/blog/2015/09/12/dark-corners-of-unicode/). */
+var reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange  + rsComboRange + rsVarRange + ']');
+
+/**
+ * Checks if `string` contains Unicode symbols.
+ *
+ * @private
+ * @param {string} string The string to inspect.
+ * @returns {boolean} Returns `true` if a symbol is found, else `false`.
+ */
+function hasUnicode(string) {
+  return reHasUnicode.test(string);
+}
+
+var _hasUnicode = hasUnicode;
+
+/**
+ * Converts an ASCII `string` to an array.
+ *
+ * @private
+ * @param {string} string The string to convert.
+ * @returns {Array} Returns the converted array.
+ */
+function asciiToArray(string) {
+  return string.split('');
+}
+
+var _asciiToArray = asciiToArray;
+
+/** Used to compose unicode character classes. */
+var rsAstralRange$1 = '\\ud800-\\udfff',
+    rsComboMarksRange$1 = '\\u0300-\\u036f',
+    reComboHalfMarksRange$1 = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange$1 = '\\u20d0-\\u20ff',
+    rsComboRange$1 = rsComboMarksRange$1 + reComboHalfMarksRange$1 + rsComboSymbolsRange$1,
+    rsVarRange$1 = '\\ufe0e\\ufe0f';
+
+/** Used to compose unicode capture groups. */
+var rsAstral = '[' + rsAstralRange$1 + ']',
+    rsCombo = '[' + rsComboRange$1 + ']',
+    rsFitz = '\\ud83c[\\udffb-\\udfff]',
+    rsModifier = '(?:' + rsCombo + '|' + rsFitz + ')',
+    rsNonAstral = '[^' + rsAstralRange$1 + ']',
+    rsRegional = '(?:\\ud83c[\\udde6-\\uddff]){2}',
+    rsSurrPair = '[\\ud800-\\udbff][\\udc00-\\udfff]',
+    rsZWJ$1 = '\\u200d';
+
+/** Used to compose unicode regexes. */
+var reOptMod = rsModifier + '?',
+    rsOptVar = '[' + rsVarRange$1 + ']?',
+    rsOptJoin = '(?:' + rsZWJ$1 + '(?:' + [rsNonAstral, rsRegional, rsSurrPair].join('|') + ')' + rsOptVar + reOptMod + ')*',
+    rsSeq = rsOptVar + reOptMod + rsOptJoin,
+    rsSymbol = '(?:' + [rsNonAstral + rsCombo + '?', rsCombo, rsRegional, rsSurrPair, rsAstral].join('|') + ')';
+
+/** Used to match [string symbols](https://mathiasbynens.be/notes/javascript-unicode). */
+var reUnicode = RegExp(rsFitz + '(?=' + rsFitz + ')|' + rsSymbol + rsSeq, 'g');
+
+/**
+ * Converts a Unicode `string` to an array.
+ *
+ * @private
+ * @param {string} string The string to convert.
+ * @returns {Array} Returns the converted array.
+ */
+function unicodeToArray(string) {
+  return string.match(reUnicode) || [];
+}
+
+var _unicodeToArray = unicodeToArray;
+
+/**
+ * Converts `string` to an array.
+ *
+ * @private
+ * @param {string} string The string to convert.
+ * @returns {Array} Returns the converted array.
+ */
+function stringToArray(string) {
+  return _hasUnicode(string)
+    ? _unicodeToArray(string)
+    : _asciiToArray(string);
+}
+
+var _stringToArray = stringToArray;
+
+/**
+ * Creates a function like `_.lowerFirst`.
+ *
+ * @private
+ * @param {string} methodName The name of the `String` case method to use.
+ * @returns {Function} Returns the new case function.
+ */
+function createCaseFirst(methodName) {
+  return function(string) {
+    string = toString_1(string);
+
+    var strSymbols = _hasUnicode(string)
+      ? _stringToArray(string)
+      : undefined;
+
+    var chr = strSymbols
+      ? strSymbols[0]
+      : string.charAt(0);
+
+    var trailing = strSymbols
+      ? _castSlice(strSymbols, 1).join('')
+      : string.slice(1);
+
+    return chr[methodName]() + trailing;
+  };
+}
+
+var _createCaseFirst = createCaseFirst;
+
+/**
+ * Converts the first character of `string` to upper case.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category String
+ * @param {string} [string=''] The string to convert.
+ * @returns {string} Returns the converted string.
+ * @example
+ *
+ * _.upperFirst('fred');
+ * // => 'Fred'
+ *
+ * _.upperFirst('FRED');
+ * // => 'FRED'
+ */
+var upperFirst = _createCaseFirst('toUpperCase');
+
+var upperFirst_1 = upperFirst;
+
+/**
+ * Converts the first character of `string` to upper case and the remaining
+ * to lower case.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to capitalize.
+ * @returns {string} Returns the capitalized string.
+ * @example
+ *
+ * _.capitalize('FRED');
+ * // => 'Fred'
+ */
+function capitalize(string) {
+  return upperFirst_1(toString_1(string).toLowerCase());
+}
+
+var capitalize_1 = capitalize;
+
+/**
+ * A specialized version of `_.reduce` for arrays without support for
+ * iteratee shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @param {*} [accumulator] The initial value.
+ * @param {boolean} [initAccum] Specify using the first element of `array` as
+ *  the initial value.
+ * @returns {*} Returns the accumulated value.
+ */
+function arrayReduce(array, iteratee, accumulator, initAccum) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  if (initAccum && length) {
+    accumulator = array[++index];
+  }
+  while (++index < length) {
+    accumulator = iteratee(accumulator, array[index], index, array);
+  }
+  return accumulator;
+}
+
+var _arrayReduce = arrayReduce;
+
+/**
+ * The base implementation of `_.propertyOf` without support for deep paths.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Function} Returns the new accessor function.
+ */
+function basePropertyOf(object) {
+  return function(key) {
+    return object == null ? undefined : object[key];
+  };
+}
+
+var _basePropertyOf = basePropertyOf;
+
+/** Used to map Latin Unicode letters to basic Latin letters. */
+var deburredLetters = {
+  // Latin-1 Supplement block.
+  '\xc0': 'A',  '\xc1': 'A', '\xc2': 'A', '\xc3': 'A', '\xc4': 'A', '\xc5': 'A',
+  '\xe0': 'a',  '\xe1': 'a', '\xe2': 'a', '\xe3': 'a', '\xe4': 'a', '\xe5': 'a',
+  '\xc7': 'C',  '\xe7': 'c',
+  '\xd0': 'D',  '\xf0': 'd',
+  '\xc8': 'E',  '\xc9': 'E', '\xca': 'E', '\xcb': 'E',
+  '\xe8': 'e',  '\xe9': 'e', '\xea': 'e', '\xeb': 'e',
+  '\xcc': 'I',  '\xcd': 'I', '\xce': 'I', '\xcf': 'I',
+  '\xec': 'i',  '\xed': 'i', '\xee': 'i', '\xef': 'i',
+  '\xd1': 'N',  '\xf1': 'n',
+  '\xd2': 'O',  '\xd3': 'O', '\xd4': 'O', '\xd5': 'O', '\xd6': 'O', '\xd8': 'O',
+  '\xf2': 'o',  '\xf3': 'o', '\xf4': 'o', '\xf5': 'o', '\xf6': 'o', '\xf8': 'o',
+  '\xd9': 'U',  '\xda': 'U', '\xdb': 'U', '\xdc': 'U',
+  '\xf9': 'u',  '\xfa': 'u', '\xfb': 'u', '\xfc': 'u',
+  '\xdd': 'Y',  '\xfd': 'y', '\xff': 'y',
+  '\xc6': 'Ae', '\xe6': 'ae',
+  '\xde': 'Th', '\xfe': 'th',
+  '\xdf': 'ss',
+  // Latin Extended-A block.
+  '\u0100': 'A',  '\u0102': 'A', '\u0104': 'A',
+  '\u0101': 'a',  '\u0103': 'a', '\u0105': 'a',
+  '\u0106': 'C',  '\u0108': 'C', '\u010a': 'C', '\u010c': 'C',
+  '\u0107': 'c',  '\u0109': 'c', '\u010b': 'c', '\u010d': 'c',
+  '\u010e': 'D',  '\u0110': 'D', '\u010f': 'd', '\u0111': 'd',
+  '\u0112': 'E',  '\u0114': 'E', '\u0116': 'E', '\u0118': 'E', '\u011a': 'E',
+  '\u0113': 'e',  '\u0115': 'e', '\u0117': 'e', '\u0119': 'e', '\u011b': 'e',
+  '\u011c': 'G',  '\u011e': 'G', '\u0120': 'G', '\u0122': 'G',
+  '\u011d': 'g',  '\u011f': 'g', '\u0121': 'g', '\u0123': 'g',
+  '\u0124': 'H',  '\u0126': 'H', '\u0125': 'h', '\u0127': 'h',
+  '\u0128': 'I',  '\u012a': 'I', '\u012c': 'I', '\u012e': 'I', '\u0130': 'I',
+  '\u0129': 'i',  '\u012b': 'i', '\u012d': 'i', '\u012f': 'i', '\u0131': 'i',
+  '\u0134': 'J',  '\u0135': 'j',
+  '\u0136': 'K',  '\u0137': 'k', '\u0138': 'k',
+  '\u0139': 'L',  '\u013b': 'L', '\u013d': 'L', '\u013f': 'L', '\u0141': 'L',
+  '\u013a': 'l',  '\u013c': 'l', '\u013e': 'l', '\u0140': 'l', '\u0142': 'l',
+  '\u0143': 'N',  '\u0145': 'N', '\u0147': 'N', '\u014a': 'N',
+  '\u0144': 'n',  '\u0146': 'n', '\u0148': 'n', '\u014b': 'n',
+  '\u014c': 'O',  '\u014e': 'O', '\u0150': 'O',
+  '\u014d': 'o',  '\u014f': 'o', '\u0151': 'o',
+  '\u0154': 'R',  '\u0156': 'R', '\u0158': 'R',
+  '\u0155': 'r',  '\u0157': 'r', '\u0159': 'r',
+  '\u015a': 'S',  '\u015c': 'S', '\u015e': 'S', '\u0160': 'S',
+  '\u015b': 's',  '\u015d': 's', '\u015f': 's', '\u0161': 's',
+  '\u0162': 'T',  '\u0164': 'T', '\u0166': 'T',
+  '\u0163': 't',  '\u0165': 't', '\u0167': 't',
+  '\u0168': 'U',  '\u016a': 'U', '\u016c': 'U', '\u016e': 'U', '\u0170': 'U', '\u0172': 'U',
+  '\u0169': 'u',  '\u016b': 'u', '\u016d': 'u', '\u016f': 'u', '\u0171': 'u', '\u0173': 'u',
+  '\u0174': 'W',  '\u0175': 'w',
+  '\u0176': 'Y',  '\u0177': 'y', '\u0178': 'Y',
+  '\u0179': 'Z',  '\u017b': 'Z', '\u017d': 'Z',
+  '\u017a': 'z',  '\u017c': 'z', '\u017e': 'z',
+  '\u0132': 'IJ', '\u0133': 'ij',
+  '\u0152': 'Oe', '\u0153': 'oe',
+  '\u0149': "'n", '\u017f': 's'
+};
+
+/**
+ * Used by `_.deburr` to convert Latin-1 Supplement and Latin Extended-A
+ * letters to basic Latin letters.
+ *
+ * @private
+ * @param {string} letter The matched letter to deburr.
+ * @returns {string} Returns the deburred letter.
+ */
+var deburrLetter = _basePropertyOf(deburredLetters);
+
+var _deburrLetter = deburrLetter;
+
+/** Used to match Latin Unicode letters (excluding mathematical operators). */
+var reLatin = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g;
+
+/** Used to compose unicode character classes. */
+var rsComboMarksRange$2 = '\\u0300-\\u036f',
+    reComboHalfMarksRange$2 = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange$2 = '\\u20d0-\\u20ff',
+    rsComboRange$2 = rsComboMarksRange$2 + reComboHalfMarksRange$2 + rsComboSymbolsRange$2;
+
+/** Used to compose unicode capture groups. */
+var rsCombo$1 = '[' + rsComboRange$2 + ']';
+
+/**
+ * Used to match [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks) and
+ * [combining diacritical marks for symbols](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols).
+ */
+var reComboMark = RegExp(rsCombo$1, 'g');
+
+/**
+ * Deburrs `string` by converting
+ * [Latin-1 Supplement](https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)#Character_table)
+ * and [Latin Extended-A](https://en.wikipedia.org/wiki/Latin_Extended-A)
+ * letters to basic Latin letters and removing
+ * [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks).
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to deburr.
+ * @returns {string} Returns the deburred string.
+ * @example
+ *
+ * _.deburr('déjà vu');
+ * // => 'deja vu'
+ */
+function deburr(string) {
+  string = toString_1(string);
+  return string && string.replace(reLatin, _deburrLetter).replace(reComboMark, '');
+}
+
+var deburr_1 = deburr;
+
+/** Used to match words composed of alphanumeric characters. */
+var reAsciiWord = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g;
+
+/**
+ * Splits an ASCII `string` into an array of its words.
+ *
+ * @private
+ * @param {string} The string to inspect.
+ * @returns {Array} Returns the words of `string`.
+ */
+function asciiWords(string) {
+  return string.match(reAsciiWord) || [];
+}
+
+var _asciiWords = asciiWords;
+
+/** Used to detect strings that need a more robust regexp to match words. */
+var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
+
+/**
+ * Checks if `string` contains a word composed of Unicode symbols.
+ *
+ * @private
+ * @param {string} string The string to inspect.
+ * @returns {boolean} Returns `true` if a word is found, else `false`.
+ */
+function hasUnicodeWord(string) {
+  return reHasUnicodeWord.test(string);
+}
+
+var _hasUnicodeWord = hasUnicodeWord;
+
+/** Used to compose unicode character classes. */
+var rsAstralRange$2 = '\\ud800-\\udfff',
+    rsComboMarksRange$3 = '\\u0300-\\u036f',
+    reComboHalfMarksRange$3 = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange$3 = '\\u20d0-\\u20ff',
+    rsComboRange$3 = rsComboMarksRange$3 + reComboHalfMarksRange$3 + rsComboSymbolsRange$3,
+    rsDingbatRange = '\\u2700-\\u27bf',
+    rsLowerRange = 'a-z\\xdf-\\xf6\\xf8-\\xff',
+    rsMathOpRange = '\\xac\\xb1\\xd7\\xf7',
+    rsNonCharRange = '\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf',
+    rsPunctuationRange = '\\u2000-\\u206f',
+    rsSpaceRange = ' \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000',
+    rsUpperRange = 'A-Z\\xc0-\\xd6\\xd8-\\xde',
+    rsVarRange$2 = '\\ufe0e\\ufe0f',
+    rsBreakRange = rsMathOpRange + rsNonCharRange + rsPunctuationRange + rsSpaceRange;
+
+/** Used to compose unicode capture groups. */
+var rsApos = "['\u2019]",
+    rsBreak = '[' + rsBreakRange + ']',
+    rsCombo$2 = '[' + rsComboRange$3 + ']',
+    rsDigits = '\\d+',
+    rsDingbat = '[' + rsDingbatRange + ']',
+    rsLower = '[' + rsLowerRange + ']',
+    rsMisc = '[^' + rsAstralRange$2 + rsBreakRange + rsDigits + rsDingbatRange + rsLowerRange + rsUpperRange + ']',
+    rsFitz$1 = '\\ud83c[\\udffb-\\udfff]',
+    rsModifier$1 = '(?:' + rsCombo$2 + '|' + rsFitz$1 + ')',
+    rsNonAstral$1 = '[^' + rsAstralRange$2 + ']',
+    rsRegional$1 = '(?:\\ud83c[\\udde6-\\uddff]){2}',
+    rsSurrPair$1 = '[\\ud800-\\udbff][\\udc00-\\udfff]',
+    rsUpper = '[' + rsUpperRange + ']',
+    rsZWJ$2 = '\\u200d';
+
+/** Used to compose unicode regexes. */
+var rsMiscLower = '(?:' + rsLower + '|' + rsMisc + ')',
+    rsMiscUpper = '(?:' + rsUpper + '|' + rsMisc + ')',
+    rsOptContrLower = '(?:' + rsApos + '(?:d|ll|m|re|s|t|ve))?',
+    rsOptContrUpper = '(?:' + rsApos + '(?:D|LL|M|RE|S|T|VE))?',
+    reOptMod$1 = rsModifier$1 + '?',
+    rsOptVar$1 = '[' + rsVarRange$2 + ']?',
+    rsOptJoin$1 = '(?:' + rsZWJ$2 + '(?:' + [rsNonAstral$1, rsRegional$1, rsSurrPair$1].join('|') + ')' + rsOptVar$1 + reOptMod$1 + ')*',
+    rsOrdLower = '\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])',
+    rsOrdUpper = '\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])',
+    rsSeq$1 = rsOptVar$1 + reOptMod$1 + rsOptJoin$1,
+    rsEmoji = '(?:' + [rsDingbat, rsRegional$1, rsSurrPair$1].join('|') + ')' + rsSeq$1;
+
+/** Used to match complex or compound words. */
+var reUnicodeWord = RegExp([
+  rsUpper + '?' + rsLower + '+' + rsOptContrLower + '(?=' + [rsBreak, rsUpper, '$'].join('|') + ')',
+  rsMiscUpper + '+' + rsOptContrUpper + '(?=' + [rsBreak, rsUpper + rsMiscLower, '$'].join('|') + ')',
+  rsUpper + '?' + rsMiscLower + '+' + rsOptContrLower,
+  rsUpper + '+' + rsOptContrUpper,
+  rsOrdUpper,
+  rsOrdLower,
+  rsDigits,
+  rsEmoji
+].join('|'), 'g');
+
+/**
+ * Splits a Unicode `string` into an array of its words.
+ *
+ * @private
+ * @param {string} The string to inspect.
+ * @returns {Array} Returns the words of `string`.
+ */
+function unicodeWords(string) {
+  return string.match(reUnicodeWord) || [];
+}
+
+var _unicodeWords = unicodeWords;
+
+/**
+ * Splits `string` into an array of its words.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to inspect.
+ * @param {RegExp|string} [pattern] The pattern to match words.
+ * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+ * @returns {Array} Returns the words of `string`.
+ * @example
+ *
+ * _.words('fred, barney, & pebbles');
+ * // => ['fred', 'barney', 'pebbles']
+ *
+ * _.words('fred, barney, & pebbles', /[^, ]+/g);
+ * // => ['fred', 'barney', '&', 'pebbles']
+ */
+function words(string, pattern, guard) {
+  string = toString_1(string);
+  pattern = guard ? undefined : pattern;
+
+  if (pattern === undefined) {
+    return _hasUnicodeWord(string) ? _unicodeWords(string) : _asciiWords(string);
+  }
+  return string.match(pattern) || [];
+}
+
+var words_1 = words;
+
+/** Used to compose unicode capture groups. */
+var rsApos$1 = "['\u2019]";
+
+/** Used to match apostrophes. */
+var reApos = RegExp(rsApos$1, 'g');
+
+/**
+ * Creates a function like `_.camelCase`.
+ *
+ * @private
+ * @param {Function} callback The function to combine each word.
+ * @returns {Function} Returns the new compounder function.
+ */
+function createCompounder(callback) {
+  return function(string) {
+    return _arrayReduce(words_1(deburr_1(string).replace(reApos, '')), callback, '');
+  };
+}
+
+var _createCompounder = createCompounder;
+
+/**
+ * Converts `string` to [camel case](https://en.wikipedia.org/wiki/CamelCase).
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to convert.
+ * @returns {string} Returns the camel cased string.
+ * @example
+ *
+ * _.camelCase('Foo Bar');
+ * // => 'fooBar'
+ *
+ * _.camelCase('--foo-bar--');
+ * // => 'fooBar'
+ *
+ * _.camelCase('__FOO_BAR__');
+ * // => 'fooBar'
+ */
+var camelCase = _createCompounder(function(result, word, index) {
+  word = word.toLowerCase();
+  return result + (index ? capitalize_1(word) : word);
+});
+
+var camelCase_1 = camelCase;
+
+var formatFlags = function formatFlags(flags) {
+  return Object.fromEntries(Object.keys(flags).map(function (key) {
+    return [camelCase_1(key), flags[key]];
+  }));
+};
+var rethrow = function rethrow(e) {
+  // Intended to be mocked in tests to avoid uncaught promise rejections in dependencies
+  throw e;
+};
+
+var initialize = function initialize(_ref) {
+  var clientSideId = _ref.clientSideId,
+      user = _ref.user,
+      ldOptions = _ref.ldOptions,
+      readyBeforeIdentify = _ref.readyBeforeIdentify;
+  var ldClient = (0,launchdarkly_js_client_sdk__WEBPACK_IMPORTED_MODULE_0__.initialize)(clientSideId, user, ldOptions);
+  var $ld = {
+    ldClient: ldClient,
+    identify: function identify(_ref2, vueLdCallback) {
+      var _this = this;
+
+      var newUser = _ref2.newUser,
+          hash = _ref2.hash,
+          callback = _ref2.callback;
+      return new Promise(function (r) {
+        _this.ready = false;
+        ldClient.identify(newUser, hash, callback).then(function () {
+          _this.ready = true;
+
+          if (vueLdCallback) {
+            var boundVueLdCallback = vueLdCallback.bind($ld);
+            boundVueLdCallback();
+          }
+
+          r();
+        });
+      });
+    },
+    flags: {},
+    ready: false,
+    error: null
+  };
+  ldClient.on('ready', function () {
+    $ld.flags = formatFlags(ldClient.allFlags());
+    $ld.ready = readyBeforeIdentify;
+  });
+  ldClient.on('change', function (changes) {
+    var flattenedFlags = Object.fromEntries(Object.keys(changes).map(function (key) {
+      return [key, changes[key].current];
+    }));
+    $ld.flags = _objectSpread2(_objectSpread2({}, $ld.flags), formatFlags(flattenedFlags));
+  });
+  ldClient.on('error', function (e) {
+    $ld.error = e;
+    rethrow(e);
+  });
+  return $ld;
+};
+
+var stub = function stub(_ref3) {
+  var flagsStub = _ref3.flagsStub,
+      readyBeforeIdentify = _ref3.readyBeforeIdentify;
+  return {
+    identify: function identify() {
+      this.ready = true;
+    },
+    flags: flagsStub,
+    ready: readyBeforeIdentify
+  };
+};
+
+var plugin = {
+  install: function install(Vue, options) {
+    return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var clientSideId, user, ldOptions, flagsStub, _options$readyBeforeI, readyBeforeIdentify, $ld;
+
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              clientSideId = options.clientSideId, user = options.user, ldOptions = options.options, flagsStub = options.flagsStub, _options$readyBeforeI = options.readyBeforeIdentify, readyBeforeIdentify = _options$readyBeforeI === void 0 ? true : _options$readyBeforeI;
+
+              if (flagsStub) {
+                $ld = stub({
+                  flagsStub: flagsStub,
+                  readyBeforeIdentify: readyBeforeIdentify
+                });
+              } else {
+                $ld = initialize({
+                  clientSideId: clientSideId,
+                  user: user,
+                  ldOptions: ldOptions,
+                  readyBeforeIdentify: readyBeforeIdentify
+                });
+              } // eslint-disable-next-line no-param-reassign
+
+
+              Vue.prototype.$ld = Vue.observable($ld);
+
+            case 3:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+};
+
+var ldRedirectMixin = (function (requiredFeatureFlag, to, invertFlag) {
+  return {
+    data: function data() {
+      return {
+        ldRedirectReadyWatcher: null,
+        ldRedirectFlagWatcher: null,
+        ldRedirectHasBeenDeactivated: false
+      };
+    },
+    computed: {
+      ldRedirectFlagValue: function ldRedirectFlagValue() {
+        return this.invertFlag || invertFlag ? !this.$ld.flags[requiredFeatureFlag || this.requiredFeatureFlag] : this.$ld.flags[requiredFeatureFlag || this.requiredFeatureFlag];
+      },
+      ldRedirectShouldRedirect: function ldRedirectShouldRedirect() {
+        return this.$ld.ready && !this.ldRedirectFlagValue;
+      },
+      ldRedirectShouldDestroy: function ldRedirectShouldDestroy() {
+        return this.$ld.ready && this.ldRedirectFlagValue;
+      },
+      ldRedirectResolveTo: function ldRedirectResolveTo() {
+        // handles 'to' redirect values passed as functions
+        var redirectVal = to == null ? this.ldRedirectTo : to;
+
+        if (typeof redirectVal === 'function') {
+          var boundRedirectTo = redirectVal.bind(this);
+          return boundRedirectTo();
+        }
+
+        return redirectVal;
+      }
+    },
+    methods: {
+      setLdRedirectReadyWatcher: function setLdRedirectReadyWatcher() {
+        var _this = this;
+
+        this.ldRedirectReadyWatcher = this.$watch(function () {
+          return _this.$ld.ready;
+        }, function () {
+          if (_this.ldRedirectShouldRedirect) {
+            _this.$router.push(_this.ldRedirectResolveTo);
+          } else if (_this.ldRedirectShouldDestroy) {
+            _this.ldRedirectDestroyWatchers();
+          }
+        });
+      },
+      setLdRedirectFlagWatcher: function setLdRedirectFlagWatcher() {
+        var _this2 = this;
+
+        this.ldRedirectFlagWatcher = this.$watch(function () {
+          return _this2.ldRedirectFlagValue;
+        }, function () {
+          if (_this2.ldRedirectShouldRedirect) {
+            _this2.$router.push(_this2.ldRedirectResolveTo);
+          } else if (_this2.ldRedirectShouldDestroy) {
+            _this2.ldRedirectDestroyWatchers();
+          }
+        });
+      },
+      ldRedirectDestroyWatchers: function ldRedirectDestroyWatchers() {
+        if (this.ldRedirectReadyWatcher) {
+          this.ldRedirectReadyWatcher();
+          this.ldRedirectReadyWatcher = null;
+        }
+
+        if (this.ldRedirectFlagWatcher) {
+          this.ldRedirectFlagWatcher();
+          this.ldRedirectFlagWatcher = null;
+        }
+      },
+      ldRedirectHandler: function ldRedirectHandler() {
+        if (this.$ld.ready && !this.ldRedirectFlagValue) {
+          this.$router.push(this.ldRedirectResolveTo);
+        } else if (!this.ldReady) {
+          this.setLdRedirectReadyWatcher();
+          this.setLdRedirectFlagWatcher();
+        }
+      }
+    },
+    activated: function activated() {
+      // activated lifecycle trigger used for keep-alive components
+      if (this.ldRedirectHasBeenDeactivated) {
+        this.ldRedirectHandler();
+      }
+    },
+    mounted: function mounted() {
+      this.ldRedirectHandler();
+    },
+    deactivated: function deactivated() {
+      this.ldRedirectHasBeenDeactivated = true;
+    }
+  };
+});
+
+var script = {
+  mixins: [ldRedirectMixin()],
+  props: {
+    component: {
+      type: [Function, Object, Promise],
+      required: true
+    },
+    componentProps: {
+      type: Object,
+      required: false,
+      default: function _default() {}
+    },
+    requiredFeatureFlag: {
+      type: String,
+      required: true
+    },
+    to: {
+      type: [String, Object, Function],
+      required: true
+    },
+    invertFlag: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
+  computed: {
+    show: function show() {
+      return this.$ld.ready && this.ldRedirectFlagValue;
+    },
+    importedComponent: function importedComponent() {
+      var _this = this;
+
+      // Handle dynamically imported components
+      if (!!this.component && typeof this.component.then === 'function') {
+        return function () {
+          return _this.component;
+        };
+      }
+
+      return this.component;
+    }
+  },
+  created: function created() {
+    this.ldRedirectTo = this.to;
+  }
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    const options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    let hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            const originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            const existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+const __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function() {
+  var _vm = this;
+  var _h = _vm.$createElement;
+  var _c = _vm._self._c || _h;
+  return _vm.show
+    ? _c(
+        _vm.importedComponent,
+        _vm._b({ tag: "component" }, "component", _vm.componentProps, false)
+      )
+    : _vm._e()
+};
+var __vue_staticRenderFns__ = [];
+__vue_render__._withStripped = true;
+
+  /* style */
+  const __vue_inject_styles__ = undefined;
+  /* scoped */
+  const __vue_scope_id__ = undefined;
+  /* module identifier */
+  const __vue_module_identifier__ = undefined;
+  /* functional template */
+  const __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  const __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+
+
 
 /***/ }),
 

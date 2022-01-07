@@ -13,6 +13,9 @@ use LaunchDarkly\LDUser;
 
 class HomeController extends Controller
 {
+    public function test() {
+        return view('test');
+    }
     /**
      * Display a listing of the resource.
      *
