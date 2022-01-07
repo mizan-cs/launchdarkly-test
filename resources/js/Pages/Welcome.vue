@@ -24,6 +24,7 @@
                     <div class="p-6">
                         <div class="flex items-center">
                             <h1 style="color:white">{{ feature }}</h1>
+
                         </div>
 
                     </div>

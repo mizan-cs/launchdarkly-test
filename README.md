@@ -68,3 +68,61 @@ Demo Project Link: https://github.com/mizan-cs/launchdarkly-test
 > * php artisan serve
 >
 > * Go to `http://127.0.0.1:8000/`
+
+
+
+## Launchdarkly Client Side Implementation
+
+## Javascript Example
+
+**Feature flags:**
+To create a feature flag go to https://app.launchdarkly.com/default/test/features
+
+then,
+
+Create Flag > Enter name and details > Save Flag
+
+1. Load the Script tag in head
+```html
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/launchdarkly-js-client-sdk"></script>
+```
+
+2. Initializing the client
+
+```html
+<script type="text/javascript">
+  var user = {
+      "key": "aa0ceb"
+    };
+    var client = LDClient.initialize('YOUR_CLIENT_SIDE_ID', user);
+
+</script>
+```
+
+3. Accept the ready event from client:
+
+```html
+
+client.on('ready', function() {
+    console.log("It's now safe to request feature flags");
+    var showFeature = client.variation("YOUR_FEATURE_KEY", false);
+    if (showFeature) {
+              // True code goes here
+    } else {
+        // False code goes here
+    }
+});
+```
+
+4. Acceept on change event:
+
+```html
+client.on('change', function () {
+      var showFeature = client.variation("show-home-page", true);
+      if(showFeature) {
+          // True code here..
+      } else {
+        // False code here 
+      }
+});
+```
